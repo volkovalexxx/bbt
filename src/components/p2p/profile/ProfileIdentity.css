@@ -1,0 +1,58 @@
+.p2p-profile-identity {
+  min-height: 78px;
+  padding: 0 20px 18px;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  column-gap: 17px;
+  align-items: center;
+}
+
+.p2p-profile-identity__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #111;
+  background: #ff9e25;
+  font-size: 26px;
+  font-weight: 540;
+  line-height: 1;
+}
+
+.p2p-profile-identity__copy {
+  min-width: 0;
+}
+
+.p2p-profile-identity__copy strong {
+  display: block;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 620;
+  line-height: 1;
+}
+
+.p2p-profile-identity__statuses {
+  margin-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 11px;
+  color: #393a40;
+  font-size: 10px;
+  font-weight: 430;
+  line-height: 1;
+}
+
+.p2p-profile-identity__statuses span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.p2p-profile-identity__statuses .is-active {
+  color: #e7e7e8;
+}
+
+.p2p-profile-identity__statuses .is-active svg {
+  color: #13c47a;
+}

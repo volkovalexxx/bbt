@@ -1,0 +1,61 @@
+:root {
+  color: #f7f7f7;
+  background: #000;
+  font-family:
+    Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    Roboto, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/bybit/fonts/inter.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "BybitMaterialIcons";
+  src: url("./assets/bybit/fonts/bit-material-iconfont.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "MolyIcons";
+  src: url("./assets/bybit/fonts/moly-iconfont.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TabIcons";
+  src: url("./assets/bybit/fonts/tab.ttf") format("truetype");
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background: none;
+  cursor: default;
+}

@@ -1,0 +1,40 @@
+.p2p-profile-stats {
+  padding: 19px 20px 14px;
+  border-top: 7px solid #101010;
+  border-bottom: 7px solid #101010;
+}
+
+.p2p-profile-stats__row {
+  min-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.p2p-profile-stats__row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #3f4046;
+  font-size: 13px;
+  font-weight: 430;
+  line-height: 1;
+}
+
+.p2p-profile-stats__row strong {
+  flex: 0 0 auto;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 630;
+  line-height: 1;
+}
+
+.p2p-profile-stats__more {
+  width: 100%;
+  height: 30px;
+  margin-top: 8px;
+  color: #3e3f45;
+  font-size: 12.5px;
+  font-weight: 430;
+}

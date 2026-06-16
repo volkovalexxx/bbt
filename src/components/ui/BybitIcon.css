@@ -1,0 +1,23 @@
+.bybit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  speak: never;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bybit-icon--material {
+  font-family: "BybitMaterialIcons";
+}
+
+.bybit-icon--moly {
+  font-family: "MolyIcons";
+}
+
+.bybit-icon--tab {
+  font-family: "TabIcons";
+}

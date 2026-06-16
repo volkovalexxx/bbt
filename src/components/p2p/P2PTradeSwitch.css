@@ -1,0 +1,80 @@
+.p2p-trade-switch-wrap {
+  position: relative;
+  height: 74px;
+  padding: 15px 20px 0;
+}
+
+.p2p-trade-switch {
+  position: relative;
+  width: 162px;
+  height: 36px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  background: #151515;
+}
+
+.p2p-trade-switch__thumb {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 81px;
+  height: 36px;
+  border-radius: 20px;
+  background: #4a4f55;
+  transition: transform 0.24s ease;
+}
+
+.p2p-trade-switch.is-sell .p2p-trade-switch__thumb {
+  transform: translateX(81px);
+}
+
+.p2p-trade-switch button {
+  position: relative;
+  z-index: 1;
+  color: #626268;
+  font-size: 13px;
+  font-weight: 620;
+  line-height: 1;
+}
+
+.p2p-trade-switch button.is-active {
+  color: #fff;
+}
+
+.p2p-core-badge {
+  position: absolute;
+  right: 21px;
+  top: 16px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p2p-core-badge img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+
+.p2p-core-badge b {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  min-width: 34px;
+  height: 17px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: #51340b;
+  background: #ff9f26;
+  font-size: 10.5px;
+  font-weight: 540;
+  transform: translateX(-50%);
+}

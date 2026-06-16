@@ -1,0 +1,74 @@
+.p2p-profile-details {
+  min-height: 100%;
+  color: #fff;
+  background: #000;
+}
+
+.p2p-profile-details__section {
+  padding: 14px 20px;
+  background: #161616;
+}
+
+.p2p-profile-details__row {
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.p2p-profile-details__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #3f4046;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.p2p-profile-details__value-wrap {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.p2p-profile-details__value-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p2p-profile-details__value-wrap strong {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 560;
+  line-height: 1;
+}
+
+.p2p-profile-details__toggle {
+  width: 14px;
+  height: 14px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.p2p-profile-details__value-note {
+  color: #5a5b61;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.p2p-profile-details__value-note.is-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.p2p-profile-details__divider {
+  margin: 0 1px;
+}

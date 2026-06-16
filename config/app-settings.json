@@ -1,0 +1,415 @@
+{
+  "home": {
+    "assetOverview": {
+      "balanceUsd": 978.32,
+      "depositButtonLabel": "Депозит",
+      "pnlLabel": "P&L за сегодня",
+      "totalAssetsLabel": "Общие активы"
+    },
+    "bottomNavItems": [
+      {
+        "active": true,
+        "glyph": "",
+        "label": "Главная"
+      },
+      {
+        "glyph": "",
+        "label": "Рынки"
+      },
+      {
+        "glyph": "",
+        "label": "Торговать"
+      },
+      {
+        "glyph": "",
+        "label": "Earn"
+      },
+      {
+        "glyph": "",
+        "label": "Активы"
+      }
+    ],
+    "header": {
+      "searchText": "EDGE/USDT",
+      "tools": [
+        {
+          "label": "Сканер",
+          "glyph": ""
+        },
+        {
+          "label": "Пригласить друга",
+          "glyph": ""
+        },
+        {
+          "badge": "42",
+          "label": "Уведомления",
+          "glyph": ""
+        }
+      ]
+    },
+    "marketRows": [
+      {
+        "base": "BTC",
+        "change": "+3.45%",
+        "coin": "btc",
+        "leverage": "10x",
+        "pair": "BTCUSDT",
+        "price": "63,119.70",
+        "quote": "USDT",
+        "volume": "963.80M USDT"
+      },
+      {
+        "base": "ETH",
+        "change": "+3.70%",
+        "coin": "eth",
+        "leverage": "10x",
+        "pair": "ETHUSDT",
+        "price": "1,690.14",
+        "quote": "USDT",
+        "volume": "282.20M USDT"
+      },
+      {
+        "base": "MNT",
+        "change": "+1.71%",
+        "coin": "mnt",
+        "leverage": "10x",
+        "pair": "MNTUSDT",
+        "price": "0.54020",
+        "quote": "USDT",
+        "volume": "9.22M USDT"
+      },
+      {
+        "base": "SOL",
+        "change": "+3.41%",
+        "coin": "sol",
+        "leverage": "10x",
+        "pair": "SOLUSDT",
+        "price": "65.55",
+        "quote": "USDT",
+        "volume": "141.70M USDT"
+      },
+      {
+        "base": "XRP",
+        "change": "+1.18%",
+        "coin": "xrp",
+        "leverage": "10x",
+        "pair": "XRPUSDT",
+        "price": "0.47420",
+        "quote": "USDT",
+        "volume": "86.30M USDT"
+      },
+      {
+        "base": "DOGE",
+        "change": "+2.11%",
+        "coin": "doge",
+        "leverage": "10x",
+        "pair": "DOGEUSDT",
+        "price": "0.12460",
+        "quote": "USDT",
+        "volume": "53.40M USDT"
+      },
+      {
+        "base": "LTC",
+        "change": "+0.84%",
+        "coin": "ltc",
+        "leverage": "10x",
+        "pair": "LTCUSDT",
+        "price": "74.82",
+        "quote": "USDT",
+        "volume": "24.10M USDT"
+      },
+      {
+        "base": "ADA",
+        "change": "+1.53%",
+        "coin": "ada",
+        "leverage": "10x",
+        "pair": "ADAUSDT",
+        "price": "0.38120",
+        "quote": "USDT",
+        "volume": "31.70M USDT"
+      }
+    ],
+    "promoBanner": {
+      "countLabel": "1/6",
+      "eyebrow": "Футбольный сезон",
+      "lines": [
+        "Торгуй. Прогнозируй матчи.",
+        "Выиграй $1 000 000"
+      ]
+    },
+    "quickActions": [
+      {
+        "label": "P2P торговля",
+        "type": "p2p",
+        "glyph": ""
+      },
+      {
+        "label": "Кошелёк",
+        "type": "wallet",
+        "glyph": ""
+      },
+      {
+        "label": "Bybit Earn",
+        "type": "earn",
+        "glyph": ""
+      },
+      {
+        "label": "Ещё",
+        "type": "more",
+        "glyph": ""
+      }
+    ],
+    "subTabs": [
+      "Спот",
+      "Фьючерсы",
+      "TradFi 🔥",
+      "Alpha"
+    ],
+    "topTabs": [
+      "Избранное",
+      "Популярные",
+      "Новые",
+      "Активные"
+    ]
+  },
+  "p2p": {
+    "bottomNavItems": [
+      {
+        "icon": "home",
+        "key": "p2p",
+        "label": "P2P"
+      },
+      {
+        "icon": "orders",
+        "key": "orders",
+        "label": "Orders"
+      },
+      {
+        "icon": "ads",
+        "key": "ads",
+        "label": "Ads"
+      },
+      {
+        "icon": "profile",
+        "key": "profile",
+        "label": "Profile"
+      }
+    ],
+    "config": {
+      "showFeaturedOffer": true
+    },
+    "filterBar": {
+      "amountLabel": "Сумма",
+      "coinLabel": "USDT",
+      "paymentLabel": "Все способы оплаты"
+    },
+    "header": {
+      "currency": "RUB",
+      "tabs": [
+        "Express",
+        "P2P",
+        "Блочная торговля"
+      ]
+    },
+    "notice": {
+      "text": "Никогда не общайтесь вне платформы, так как история чата может быть использована для проверки спора"
+    },
+    "orders": [
+      {
+        "badge": "Популярное для новых пользователей",
+        "completion": "181 Ордера (97%)",
+        "featured": true,
+        "limit": "5000,00 - 5000,00 RUB",
+        "methods": [
+          "Mobile Top-up",
+          "Наличные",
+          "Bank Transfer"
+        ],
+        "name": "Sonnberry",
+        "orders": "",
+        "price": "75,00",
+        "quantity": "100 USDT",
+        "time": "2мин.",
+        "visible": false
+      },
+      {
+        "completion": "5 Ордера (100%)",
+        "limit": "500,00 - 501,00 RUB",
+        "methods": [
+          "Bank Transfer"
+        ],
+        "name": "G0v0nuc",
+        "price": "72,94",
+        "quantity": "11,7252 USDT",
+        "time": "1мин."
+      },
+      {
+        "completion": "349 Ордера (100%)",
+        "disabled": true,
+        "limit": "1650,00 - 1650,00 RUB",
+        "methods": [
+          "Bank Transfer"
+        ],
+        "name": "Amirkhankh",
+        "price": "74,00",
+        "quantity": "30 USDT",
+        "time": "4мин."
+      },
+      {
+        "completion": "565 Ордера (100%)",
+        "limit": "1000,00 - 2500,00 RUB",
+        "methods": [
+          "Bank Transfer"
+        ],
+        "name": "DominateX",
+        "price": "74,20",
+        "quantity": "54 USDT"
+      }
+    ],
+    "profile": {
+      "helpLabel": "Help & Support",
+      "details": {
+        "sections": [
+          [
+            {
+              "label": "Исполненные ордера за 30 дней",
+              "value": "10000 Ордера"
+            },
+            {
+              "label": "Все исполненные ордера",
+              "value": "10000 Ордера",
+              "valueNote": "Покупка 15 | Продажа 13"
+            },
+            {
+              "label": "Высокий рейтинг %",
+              "value": "100%",
+              "valueNote": "999 | 1",
+              "valueNoteType": "rating"
+            },
+            {
+              "label": "Процент исполнения за 30 дней (%)",
+              "value": "100 %"
+            },
+            {
+              "label": "Средн. время перевода",
+              "value": "1 мин."
+            },
+            {
+              "label": "Средн. время оплаты",
+              "value": "1 мин."
+            }
+          ],
+          [
+            {
+              "label": "Дней с создания аккаунта",
+              "value": "9999 дн."
+            },
+            {
+              "label": "Дней с первой сделки",
+              "value": "9999 дн."
+            },
+            {
+              "help": true,
+              "label": "Подтверждённое имя",
+              "revealedValue": "IVAN IVANOV",
+              "value": "****",
+              "valueIcon": "hidden"
+            },
+            {
+              "label": "Торговый объём за 30 дней",
+              "value": "10000 USDT"
+            },
+            {
+              "label": "Прибл. общий торговый объём",
+              "value": "10000 USDT"
+            }
+          ]
+        ]
+      },
+      "menuGroups": [
+        [
+          {
+            "icon": "ticket",
+            "label": "P2P-купон"
+          },
+          {
+            "icon": "wallet",
+            "label": "Способ оплаты",
+            "value": "2"
+          },
+          {
+            "accent": true,
+            "icon": "merchant",
+            "label": "Мерчант",
+            "value": "Список привилегий"
+          }
+        ],
+        [
+          {
+            "icon": "review",
+            "label": "Оставьте отзыв",
+            "value": 100
+          },
+          {
+            "icon": "notifications",
+            "label": "Настройка уведомлений"
+          },
+          {
+            "icon": "subscriptions",
+            "label": "Подписки"
+          },
+          {
+            "icon": "blacklist",
+            "label": "Управлять чёрным списком"
+          }
+        ]
+      ],
+      "stats": [
+        {
+          "label": "Исполненные ордера за 30 дней",
+          "value": "59 Ордера"
+        },
+        {
+          "help": true,
+          "label": "Исполнено за 30 дней",
+          "value": "100 %"
+        },
+        {
+          "label": "Средн. время перевода",
+          "value": "1 мин."
+        },
+        {
+          "label": "Средн. время оплаты",
+          "value": "1 мин."
+        }
+      ],
+      "statuses": [
+        {
+          "active": true,
+          "label": "Эл. почта"
+        },
+        {
+          "active": false,
+          "label": "SMS"
+        },
+        {
+          "active": true,
+          "label": "Верификация личности"
+        },
+        {
+          "active": false,
+          "label": "Депозит"
+        }
+      ],
+      "summaryActionLabel": "Больше данных",
+      "user": {
+        "name": "test666"
+      }
+    },
+    "tradeSwitch": {
+      "buyLabel": "Покупка",
+      "sellLabel": "Продажа",
+      "tokenBadgeLabel": "TRX"
+    }
+  }
+}

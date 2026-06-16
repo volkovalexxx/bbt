@@ -1,0 +1,68 @@
+.p2p-bottom-nav {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 393px;
+  height: 84px;
+  margin: 0 auto;
+  padding: 12px 28px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 0;
+  border-radius: 32px 32px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: rgba(6, 6, 6, 0.97);
+  box-shadow:
+    0 -14px 34px rgba(0, 0, 0, 0.78),
+    0 -1px 0 rgba(255, 255, 255, 0.03) inset;
+  backdrop-filter: blur(16px);
+}
+
+.p2p-bottom-nav button {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  color: #6d6e75;
+}
+
+.p2p-bottom-nav button.is-active {
+  color: #fff;
+}
+
+.p2p-bottom-nav__image {
+  width: 31px;
+  height: 31px;
+  margin: -4px 0 -6px;
+  display: block;
+  object-fit: contain;
+}
+
+.p2p-bottom-nav__image--orders {
+  width: 40px;
+  height: 40px;
+  margin: -8px 0 -10px;
+}
+
+.p2p-bottom-nav__image--ads {
+  width: 37px;
+  height: 37px;
+  margin: -7px 0 -9px;
+}
+
+.p2p-bottom-nav__image--profile {
+  width: 36px;
+  height: 36px;
+  margin: -6px 0 -8px;
+}
+
+.p2p-bottom-nav span {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+}

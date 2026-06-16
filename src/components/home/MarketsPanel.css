@@ -1,0 +1,151 @@
+.markets-panel {
+  min-height: 392px;
+  margin-top: 16px;
+  padding: 20px 16px 22px;
+  border-radius: 17px;
+  overflow: visible;
+  background: #151515;
+}
+
+.markets-panel__tabs,
+.markets-panel__subtabs {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.markets-panel__tabs {
+  gap: 14px;
+  overflow: visible;
+}
+
+.markets-panel__tabs button {
+  color: #6c6c73;
+  font-size: 13px;
+  font-weight: 480;
+  line-height: 1;
+}
+
+.markets-panel__tabs .is-active {
+  color: #fff;
+  font-weight: 620;
+}
+
+.markets-panel__subtabs {
+  margin-top: 21px;
+  gap: 17px;
+}
+
+.markets-panel__subtabs button {
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 15px;
+  color: #73737b;
+  font-size: 11px;
+  font-weight: 470;
+  line-height: 1;
+}
+
+.markets-panel__subtabs .is-selected {
+  min-width: 51px;
+  color: #fff;
+  background: #20202a;
+  font-weight: 620;
+}
+
+.market-list {
+  margin-top: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.market-row {
+  display: grid;
+  grid-template-columns: 35px minmax(128px, 1fr) 74px 60px;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.market-row__asset {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.market-row__pair {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.market-row__pair .market-row__base {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 520;
+}
+
+.market-row__pair em,
+.market-row__pair .market-row__quote {
+  color: #8a8a91;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 520;
+}
+
+.market-row__pair em {
+  margin: 0 2px;
+}
+
+.market-row__pair b {
+  height: 13px;
+  min-width: 20px;
+  margin-left: 5px;
+  padding: 0 4px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #2a2c2d;
+  font-size: 8px;
+  font-weight: 520;
+  line-height: 1;
+}
+
+.market-row__volume {
+  color: #6c6c74;
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 1;
+}
+
+.market-row__price {
+  justify-self: end;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 620;
+  line-height: 1;
+}
+
+.market-row__change {
+  justify-self: end;
+  width: 58px;
+  height: 24px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #f93655;
+  font-size: 11px;
+  font-weight: 520;
+  line-height: 1;
+}
+
+.market-row__change.is-positive {
+  background: #16c784;
+}

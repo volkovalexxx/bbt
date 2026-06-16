@@ -1,0 +1,24 @@
+.viewport {
+  position: relative;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.phone-screen {
+  position: relative;
+  width: min(100vw, 393px);
+  height: 100dvh;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #000;
+  scrollbar-width: none;
+}
+
+.phone-screen::-webkit-scrollbar {
+  display: none;
+}

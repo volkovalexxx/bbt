@@ -1,0 +1,9 @@
+.p2p-nav-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.p2p-nav-icon--ads {
+  transform: translateY(1px);
+}

@@ -1,0 +1,40 @@
+.p2p-notice {
+  height: 35px;
+  padding: 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  overflow: hidden;
+  color: #f0f0f2;
+  font-size: 12px;
+  font-weight: 430;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.p2p-notice svg {
+  flex: 0 0 auto;
+}
+
+.p2p-notice__marquee {
+  min-width: 0;
+  display: flex;
+  gap: 36px;
+  overflow: hidden;
+}
+
+.p2p-notice__marquee span {
+  flex: 0 0 auto;
+  animation: p2p-notice-scroll 12s linear infinite;
+}
+
+@keyframes p2p-notice-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - 36px));
+  }
+}

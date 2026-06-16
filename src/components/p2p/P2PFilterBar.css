@@ -1,0 +1,48 @@
+.p2p-filter-bar {
+  height: 41px;
+  padding: 0 20px;
+  border-top: 1px solid #1c1c1f;
+  border-bottom: 1px solid #1c1c1f;
+  display: grid;
+  grid-template-columns: 68px 64px minmax(0, 1fr) 28px;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.p2p-filter-bar button {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f3f3f5;
+  font-size: 12.5px;
+  font-weight: 470;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.p2p-filter-bar svg {
+  flex: 0 0 auto;
+  color: #666970;
+}
+
+.p2p-filter-bar__coin img {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: block;
+}
+
+.p2p-filter-bar__payment {
+  overflow: hidden;
+}
+
+.p2p-filter-bar__payment span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p2p-filter-bar__filter {
+  justify-content: flex-end;
+}
