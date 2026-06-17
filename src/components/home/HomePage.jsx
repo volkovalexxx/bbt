@@ -7,13 +7,13 @@ import { PromoBanner } from './PromoBanner'
 import { QuickActions } from './QuickActions'
 import './HomePage.css'
 
-export function HomePage({ onOpenP2P, onOpenSecretSettings }) {
+export function HomePage({ onOpenP2P, onOpenSecretSettings, onOpenServices }) {
   return (
     <AppShell nav={<BottomNav />}>
       <HeaderBar onOpenSecretSettings={onOpenSecretSettings} />
       <main className="home-page">
         <AssetOverview />
-        <QuickActions onOpenP2P={onOpenP2P} />
+        <QuickActions onOpenP2P={onOpenP2P} onOpenServices={onOpenServices} />
         <PromoBanner />
         <MarketsPanel />
       </main>

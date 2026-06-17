@@ -1,3 +1,5 @@
+import { defaultQuickActions } from './quickActionPresets'
+
 export const defaultSettings = {
   home: {
     assetOverview: {
@@ -108,12 +110,8 @@ export const defaultSettings = {
       eyebrow: 'Футбольный сезон',
       lines: ['Торгуй. Прогнозируй матчи.', 'Выиграй $1 000 000'],
     },
-    quickActions: [
-      { label: 'P2P торговля', type: 'p2p', glyph: '\ue8cd' },
-      { label: 'Кошелёк', type: 'wallet', glyph: '\ue766' },
-      { label: 'Bybit Earn', type: 'earn', glyph: '\ue8fe' },
-      { label: 'Ещё', type: 'more', glyph: '\ue8ec' },
-    ],
+    quickActionPresetIndex: 0,
+    quickActions: defaultQuickActions,
     subTabs: ['Спот', 'Фьючерсы', 'TradFi 🔥', 'Alpha'],
     topTabs: ['Избранное', 'Популярные', 'Новые', 'Активные'],
   },
@@ -182,7 +180,18 @@ export const defaultSettings = {
       },
     ],
     profile: {
+      badges: {
+        merchant: false,
+        vipBronze: false,
+        vipGold: false,
+        vipSilver: false,
+      },
       helpLabel: 'Help & Support',
+      presence: {
+        online: true,
+        onlineLabel: 'Онлайн',
+        offlineLabel: 'Оффлайн',
+      },
       details: {
         sections: [
           [

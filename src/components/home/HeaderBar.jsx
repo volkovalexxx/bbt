@@ -1,22 +1,52 @@
 import { useRef } from 'react'
 import avatarKyc from '../../assets/bybit/profile/kyc1.png'
+import {
+  createQuickActionPreset,
+  quickActionPresetCount,
+} from '../../data/quickActionPresets'
 import referralIcon from '../../assets/bybit/icons/referral-program.svg'
 import { useAppSettings } from '../../settings/AppSettingsContext'
 import { BybitIcon } from '../ui/BybitIcon'
 import './HeaderBar.css'
 
 export function HeaderBar({ onOpenSecretSettings }) {
-  const clickTimesRef = useRef([])
-  const { settings } = useAppSettings()
+  const bellClickTimesRef = useRef([])
+  const scannerClickTimesRef = useRef([])
+  const { saveSettings, settings } = useAppSettings()
   const { searchText, tools } = settings.home.header
+
+  const handleScannerClick = async () => {
+    const now = Date.now()
+    const nextClicks = [...scannerClickTimesRef.current, now].filter((time) => now - time <= 550)
+    scannerClickTimesRef.current = nextClicks
+
+    if (nextClicks.length < 2) {
+      return
+    }
+
+    scannerClickTimesRef.current = []
+
+    const currentPresetIndex = settings.home.quickActionPresetIndex ?? 0
+    const nextPresetIndex = (currentPresetIndex + 1) % quickActionPresetCount
+    const nextQuickActions = createQuickActionPreset(nextPresetIndex)
+
+    await saveSettings({
+      ...settings,
+      home: {
+        ...settings.home,
+        quickActionPresetIndex: nextPresetIndex,
+        quickActions: nextQuickActions,
+      },
+    })
+  }
 
   const handleBellClick = () => {
     const now = Date.now()
-    const nextClicks = [...clickTimesRef.current, now].filter((time) => now - time <= 900)
-    clickTimesRef.current = nextClicks
+    const nextClicks = [...bellClickTimesRef.current, now].filter((time) => now - time <= 900)
+    bellClickTimesRef.current = nextClicks
 
     if (nextClicks.length >= 3) {
-      clickTimesRef.current = []
+      bellClickTimesRef.current = []
       onOpenSecretSettings?.()
     }
   }
@@ -38,7 +68,13 @@ export function HeaderBar({ onOpenSecretSettings }) {
             className="header-tool"
             key={label}
             aria-label={label}
-            onClick={label === 'Уведомления' ? handleBellClick : undefined}
+            onClick={
+              label === 'Уведомления'
+                ? handleBellClick
+                : label === 'Сканер'
+                  ? handleScannerClick
+                  : undefined
+            }
           >
             {label === 'Пригласить друга' ? (
               <img className="header-tool__image" src={referralIcon} alt="" />

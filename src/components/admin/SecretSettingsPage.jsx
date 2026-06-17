@@ -156,6 +156,9 @@ export function SecretSettingsPage({ onBack }) {
 
   const profileMenu = draft.p2p.profile.menuGroups
   const profileStats = draft.p2p.profile.stats
+  const profileBadges = draft.p2p.profile.badges
+  const profilePresence = draft.p2p.profile.presence
+  const profileStatuses = draft.p2p.profile.statuses
   const detailStats = draft.p2p.profile.details.sections[0]
   const detailExtra = draft.p2p.profile.details.sections[1]
   const featuredOrder = draft.p2p.orders[0]
@@ -188,6 +191,121 @@ export function SecretSettingsPage({ onBack }) {
       </header>
 
       <div className="secret-settings-page__content">
+        <Section title="Профиль">
+          <div className="secret-settings-page__grid">
+            <Field
+              label="Ник"
+              onChange={(event) => handleChange(['p2p', 'profile', 'user', 'name'], event.target.value)}
+              value={draft.p2p.profile.user.name}
+            />
+            <Toggle
+              checked={Boolean(profileBadges?.merchant)}
+              label="Мерчант бейдж"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'badges', 'merchant'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileBadges?.vipBronze)}
+              label="VIP Bronze"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'badges', 'vipBronze'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileBadges?.vipSilver)}
+              label="VIP Silver"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'badges', 'vipSilver'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileBadges?.vipGold)}
+              label="VIP Gold"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'badges', 'vipGold'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileStatuses?.[0]?.active)}
+              label="Эл. почта"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'statuses', 0, 'active'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileStatuses?.[1]?.active)}
+              label="SMS"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'statuses', 1, 'active'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileStatuses?.[2]?.active)}
+              label="Верификация личности"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'statuses', 2, 'active'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profileStatuses?.[3]?.active)}
+              label="Депозит"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'statuses', 3, 'active'], event.target.checked)
+              }
+            />
+            <Toggle
+              checked={Boolean(profilePresence?.online)}
+              label="Онлайн"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'presence', 'online'], event.target.checked)
+              }
+            />
+            <Field
+              label="Способ оплаты"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'menuGroups', 0, 1, 'value'], event.target.value)
+              }
+              value={profileMenu[0][1].value ?? ''}
+            />
+            <Field
+              label="Мерчант"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'menuGroups', 0, 2, 'value'], event.target.value)
+              }
+              value={profileMenu[0][2].value ?? ''}
+            />
+            <Field
+              label="Отзывы %"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'menuGroups', 1, 0, 'value'], Number(event.target.value))
+              }
+              type="number"
+              value={profileMenu[1][0].value ?? 0}
+            />
+            <Field
+              label="Ордеры за 30 дней"
+              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 0, 'value'], event.target.value)}
+              value={profileStats[0].value}
+            />
+            <Field
+              label="Исполнено за 30 дней"
+              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 1, 'value'], event.target.value)}
+              value={profileStats[1].value}
+            />
+            <Field
+              label="Средн. время перевода"
+              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 2, 'value'], event.target.value)}
+              value={profileStats[2].value}
+            />
+            <Field
+              label="Средн. время оплаты"
+              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 3, 'value'], event.target.value)}
+              value={profileStats[3].value}
+            />
+          </div>
+        </Section>
+
         <Section title="Главная">
           <Field
             label="Баланс"
@@ -289,58 +407,6 @@ export function SecretSettingsPage({ onBack }) {
               <OrderEditor index={index} key={index} onChange={handleChange} order={order} />
             )
           ))}
-        </Section>
-
-        <Section title="Профиль">
-          <div className="secret-settings-page__grid">
-            <Field
-              label="Ник"
-              onChange={(event) => handleChange(['p2p', 'profile', 'user', 'name'], event.target.value)}
-              value={draft.p2p.profile.user.name}
-            />
-            <Field
-              label="Способ оплаты"
-              onChange={(event) =>
-                handleChange(['p2p', 'profile', 'menuGroups', 0, 1, 'value'], event.target.value)
-              }
-              value={profileMenu[0][1].value ?? ''}
-            />
-            <Field
-              label="Мерчант"
-              onChange={(event) =>
-                handleChange(['p2p', 'profile', 'menuGroups', 0, 2, 'value'], event.target.value)
-              }
-              value={profileMenu[0][2].value ?? ''}
-            />
-            <Field
-              label="Отзывы %"
-              onChange={(event) =>
-                handleChange(['p2p', 'profile', 'menuGroups', 1, 0, 'value'], Number(event.target.value))
-              }
-              type="number"
-              value={profileMenu[1][0].value ?? 0}
-            />
-            <Field
-              label="Ордеры за 30 дней"
-              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 0, 'value'], event.target.value)}
-              value={profileStats[0].value}
-            />
-            <Field
-              label="Исполнено за 30 дней"
-              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 1, 'value'], event.target.value)}
-              value={profileStats[1].value}
-            />
-            <Field
-              label="Средн. время перевода"
-              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 2, 'value'], event.target.value)}
-              value={profileStats[2].value}
-            />
-            <Field
-              label="Средн. время оплаты"
-              onChange={(event) => handleChange(['p2p', 'profile', 'stats', 3, 'value'], event.target.value)}
-              value={profileStats[3].value}
-            />
-          </div>
         </Section>
 
         <Section title="Больше данных">

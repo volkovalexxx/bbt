@@ -24,12 +24,33 @@
   min-width: 0;
 }
 
+.p2p-profile-identity__name-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
 .p2p-profile-identity__copy strong {
   display: block;
   color: #fff;
   font-size: 20px;
   font-weight: 620;
   line-height: 1;
+}
+
+.p2p-profile-identity__badges {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.p2p-profile-identity__badges img {
+  width: auto;
+  height: 15px;
+  display: block;
+  object-fit: contain;
 }
 
 .p2p-profile-identity__statuses {
@@ -55,4 +76,12 @@
 
 .p2p-profile-identity__statuses .is-active svg {
   color: #13c47a;
+}
+
+.p2p-profile-identity__presence {
+  margin-top: 8px;
+  color: #585a62;
+  font-size: 11px;
+  font-weight: 450;
+  line-height: 1;
 }

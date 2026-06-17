@@ -1,17 +1,9 @@
-import earnIcon from '../../assets/bybit/icons/quick-earn.png'
-import p2pIcon from '../../assets/bybit/icons/quick-p2p.png'
-import walletIcon from '../../assets/bybit/icons/wallet-web3-program.svg'
+import { quickActionVisuals } from '../../data/quickActionPresets'
 import { useAppSettings } from '../../settings/AppSettingsContext'
 import { BybitIcon } from '../ui/BybitIcon'
 import './QuickActions.css'
 
-const quickImages = {
-  earn: earnIcon,
-  p2p: p2pIcon,
-  wallet: walletIcon,
-}
-
-export function QuickActions({ onOpenP2P }) {
+export function QuickActions({ onOpenP2P, onOpenServices }) {
   const { settings } = useAppSettings()
 
   return (
@@ -20,19 +12,25 @@ export function QuickActions({ onOpenP2P }) {
         <button
           className="quick-action"
           key={action.label}
-          onClick={action.type === 'p2p' ? onOpenP2P : undefined}
+          onClick={
+            action.type === 'p2p'
+              ? onOpenP2P
+              : action.type === 'more'
+                ? onOpenServices
+                : undefined
+          }
         >
           <span className={`quick-action__bubble quick-action__bubble--${action.type}`}>
-            {quickImages[action.type] ? (
+            {quickActionVisuals[action.type]?.image ? (
               <img
                 className={`quick-action__image quick-action__image--${action.type}`}
-                src={quickImages[action.type]}
+                src={quickActionVisuals[action.type].image}
                 alt=""
               />
             ) : (
               <BybitIcon
                 className={`quick-icon quick-icon--${action.type}`}
-                family="moly"
+                family={quickActionVisuals[action.type]?.family ?? 'moly'}
                 glyph={action.glyph}
                 size={24}
               />

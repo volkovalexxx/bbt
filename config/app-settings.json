@@ -137,26 +137,26 @@
         "Выиграй $1 000 000"
       ]
     },
+    "quickActionPresetIndex": 0,
     "quickActions": [
       {
+        "glyph": "",
         "label": "P2P торговля",
-        "type": "p2p",
-        "glyph": ""
+        "type": "p2p"
       },
       {
+        "glyph": "",
         "label": "Кошелёк",
-        "type": "wallet",
-        "glyph": ""
+        "type": "wallet"
       },
       {
-        "label": "Bybit Earn",
-        "type": "earn",
-        "glyph": ""
+        "label": "Trading Bot",
+        "type": "tradingBot"
       },
       {
+        "glyph": "",
         "label": "Ещё",
-        "type": "more",
-        "glyph": ""
+        "type": "more"
       }
     ],
     "subTabs": [
@@ -267,7 +267,18 @@
       }
     ],
     "profile": {
+      "badges": {
+        "merchant": true,
+        "vipBronze": false,
+        "vipGold": true,
+        "vipSilver": false
+      },
       "helpLabel": "Help & Support",
+      "presence": {
+        "online": true,
+        "onlineLabel": "Онлайн",
+        "offlineLabel": "Оффлайн"
+      },
       "details": {
         "sections": [
           [
@@ -389,7 +400,7 @@
           "label": "Эл. почта"
         },
         {
-          "active": false,
+          "active": true,
           "label": "SMS"
         },
         {
@@ -397,7 +408,7 @@
           "label": "Верификация личности"
         },
         {
-          "active": false,
+          "active": true,
           "label": "Депозит"
         }
       ],
