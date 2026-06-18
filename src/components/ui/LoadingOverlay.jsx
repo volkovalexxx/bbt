@@ -1,6 +1,6 @@
 import './LoadingOverlay.css'
 
-export function LoadingOverlay({ label = 'Fiat P2P', variant = 'dots' }) {
+export function LoadingOverlay({ label = 'Fiat P2P', variant = 'dots', motion = 'none' }) {
   if (variant === 'splash') {
     return (
       <div className="loading-overlay loading-overlay--splash" role="status" aria-label="Загрузка">
@@ -19,7 +19,11 @@ export function LoadingOverlay({ label = 'Fiat P2P', variant = 'dots' }) {
 
   if (variant === 'p2p') {
     return (
-      <div className="loading-overlay loading-overlay--p2p" role="status" aria-label="Загрузка P2P">
+      <div
+        className={`loading-overlay loading-overlay--p2p${motion === 'slide' ? ' loading-overlay--slide' : ''}`}
+        role="status"
+        aria-label="Загрузка P2P"
+      >
         <div className="loading-overlay__p2p-wrap">
           <div className="loading-overlay__p2p-bars" aria-hidden="true">
             <span className="is-short" />

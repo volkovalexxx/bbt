@@ -63,7 +63,7 @@ function AppContent({
           onOpenServices={onOpenServices}
         />
       )}
-      {isLoading ? <LoadingOverlay label={loadingLabel} variant="p2p" /> : null}
+      {isLoading ? <LoadingOverlay label={loadingLabel} variant="p2p" motion="slide" /> : null}
     </>
   )
 }
