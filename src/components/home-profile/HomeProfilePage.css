@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-inline: 14px;
   padding-top: 4px;
 }
 
@@ -36,18 +37,19 @@
 }
 
 .home-profile-page__identity {
-  margin-top: 34px;
+  margin-top: 30px;
+  padding-inline: 14px;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 12px;
 }
 
 .home-profile-page__avatar {
-  width: 74px;
-  height: 74px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   display: block;
-  flex: 0 0 74px;
+  flex: 0 0 68px;
 }
 
 .home-profile-page__identity-main {
@@ -59,19 +61,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .home-profile-page__identity-row strong {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 580;
   line-height: 1;
 }
 
 .home-profile-page__forward {
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
 }
 
 .home-profile-page__forward,
@@ -100,23 +102,23 @@
 }
 
 .home-profile-page__badges {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
 }
 
 .home-profile-page__badge {
   min-width: 0;
-  height: 32px;
-  padding: 0 13px;
-  border-radius: 16px;
+  height: 29px;
+  padding: 0 10px;
+  border-radius: 15px;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 500;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 440;
   white-space: nowrap;
 }
 
@@ -131,43 +133,49 @@
 }
 
 .home-profile-page__badge-check {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .home-profile-page__vip-card {
   margin-top: 22px;
-  padding: 22px 18px 18px;
+  margin-inline: 14px;
+  padding: 18px 18px 14px;
   border-radius: 24px;
   background: #161616;
 }
 
 .home-profile-page__vip-card strong {
   display: block;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 590;
   line-height: 1.1;
 }
 
 .home-profile-page__vip-card p {
-  margin: 14px 0 0;
+  margin: 10px 0 0;
   max-width: 90%;
   color: #76777c;
-  font-size: 13px;
+  font-size: 11.5px;
   font-weight: 420;
-  line-height: 1.46;
+  line-height: 1.4;
+}
+
+.home-profile-page__vip-card p em {
+  color: #fff;
+  font-style: normal;
 }
 
 .home-profile-page__vip-line {
   width: 148px;
   height: 2px;
-  margin-top: 16px;
+  margin-top: 11px;
   border-radius: 999px;
   display: block;
   background: #4f5056;
 }
 
 .home-profile-page__vip-footer {
-  margin-top: 24px;
+  margin-top: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -186,8 +194,8 @@
 
 .home-profile-page__vip-button {
   min-width: 98px;
-  height: 40px;
-  padding: 0 10px;
+  height: 38px;
+  padding: 0 9px;
   border-radius: 20px;
   display: inline-flex;
   align-items: center;
@@ -201,14 +209,15 @@
 
 .home-profile-page__shortcuts {
   margin-top: 18px;
+  padding-inline: 14px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
 .home-profile-page__shortcut {
-  min-height: 76px;
-  padding: 12px 14px;
+  min-height: 68px;
+  padding: 10px 14px;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -226,19 +235,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  gap: 3px;
   min-width: 0;
 }
 
 .home-profile-page__shortcut-copy strong {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 560;
   line-height: 1.08;
 }
 
 .home-profile-page__shortcut-copy span {
   color: #6c6d73;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 420;
   line-height: 1.12;
 }
@@ -253,6 +262,7 @@
 
 .home-profile-page__recent {
   margin-top: 28px;
+  padding-inline: 14px;
 }
 
 .home-profile-page__recent h2 {
@@ -285,18 +295,18 @@
 }
 
 .home-profile-page__all-services {
-  width: 128px;
-  height: 34px;
+  width: 110px;
+  height: 30px;
   margin: 22px auto 0;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 17px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   background: #0a0a0a;
-  font-size: 10px;
-  font-weight: 560;
+  font-size: 10.8px;
+  font-weight: 550;
 }
 
 .home-profile-page__footer {

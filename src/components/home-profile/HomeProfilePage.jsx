@@ -15,6 +15,22 @@ import { useAppSettings } from '../../settings/AppSettingsContext'
 import { BybitIcon } from '../ui/BybitIcon'
 import './HomeProfilePage.css'
 
+function renderPromoDescription(text) {
+  const parts = String(text).split('50,000')
+
+  if (parts.length === 1) {
+    return text
+  }
+
+  return parts.flatMap((part, index) => {
+    if (index === parts.length - 1) {
+      return part
+    }
+
+    return [part, <em key={`promo-amount-${index}`}>50,000</em>]
+  })
+}
+
 function ShortcutIcon({ type }) {
   if (type === 'card') {
     return <WalletCards size={34} strokeWidth={1.9} />
@@ -97,7 +113,7 @@ export function HomeProfilePage({ onBack }) {
 
       <section className="home-profile-page__vip-card">
         <strong>{profilePage.promo.title}</strong>
-        <p>{profilePage.promo.description}</p>
+        <p>{renderPromoDescription(profilePage.promo.description)}</p>
         <span className="home-profile-page__vip-line" />
         <div className="home-profile-page__vip-footer">
           <button className="home-profile-page__vip-link">
