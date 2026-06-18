@@ -19,7 +19,7 @@ function Status({ active = false, label }) {
 
 export function ProfileIdentity() {
   const { settings } = useAppSettings()
-  const { badges, presence, statuses, user } = settings.p2p.profile
+  const { badges, statuses, user } = settings.p2p.profile
   const avatarLetter = user.avatarLetter ?? user.name.trim().charAt(0).toUpperCase()
   const activeBadges = [
     badges?.merchant ? { icon: vipMerchantIcon, label: 'Merchant' } : null,
@@ -46,9 +46,6 @@ export function ProfileIdentity() {
           {statuses.map((status) => (
             <Status active={status.active} key={status.label} label={status.label} />
           ))}
-        </div>
-        <div className="p2p-profile-identity__presence">
-          {presence?.online ? presence?.onlineLabel : presence?.offlineLabel}
         </div>
       </div>
     </section>

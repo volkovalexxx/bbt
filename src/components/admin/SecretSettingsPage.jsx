@@ -158,7 +158,6 @@ export function SecretSettingsPage({ onBack }) {
   const profileStats = draft.p2p.profile.stats
   const homeProfile = draft.home.profilePage
   const profileBadges = draft.p2p.profile.badges
-  const profilePresence = draft.p2p.profile.presence
   const profileStatuses = draft.p2p.profile.statuses
   const detailStats = draft.p2p.profile.details.sections[0]
   const detailExtra = draft.p2p.profile.details.sections[1]
@@ -274,13 +273,6 @@ export function SecretSettingsPage({ onBack }) {
               label="Депозит"
               onChange={(event) =>
                 handleChange(['p2p', 'profile', 'statuses', 3, 'active'], event.target.checked)
-              }
-            />
-            <Toggle
-              checked={Boolean(profilePresence?.online)}
-              label="Онлайн"
-              onChange={(event) =>
-                handleChange(['p2p', 'profile', 'presence', 'online'], event.target.checked)
               }
             />
             <Field
