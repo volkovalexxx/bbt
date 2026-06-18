@@ -76,3 +76,88 @@
 .p2p-profile-details__divider {
   margin: 0 1px;
 }
+
+.p2p-profile-details__reveal-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(1px);
+}
+
+.p2p-profile-details__reveal-logo {
+  position: relative;
+  min-width: 88px;
+  height: 26px;
+  padding: 0 4px;
+  border-radius: 1.5px;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 12, 14, 0.46);
+}
+
+.p2p-profile-details__reveal-base,
+.p2p-profile-details__reveal-fill {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.p2p-profile-details__reveal-base {
+  color: rgba(116, 118, 125, 0.68);
+}
+
+.p2p-profile-details__reveal-base .is-accent {
+  color: rgba(189, 130, 59, 0.55);
+}
+
+.p2p-profile-details__reveal-fill {
+  color: #fff;
+  clip-path: inset(0 100% 0 0);
+  animation: p2p-reveal-fill 2.05s ease-out forwards;
+}
+
+.p2p-profile-details__reveal-fill .is-accent {
+  color: #f7a52c;
+}
+
+.p2p-profile-details__reveal-base span,
+.p2p-profile-details__reveal-fill span {
+  display: inline-block;
+}
+
+.p2p-profile-details__reveal-base .is-accent,
+.p2p-profile-details__reveal-fill .is-accent {
+  transform: translateY(-12%);
+}
+
+@keyframes p2p-reveal-fill {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.5;
+  }
+
+  58% {
+    clip-path: inset(0 42% 0 0);
+    opacity: 0.88;
+  }
+
+  82% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}

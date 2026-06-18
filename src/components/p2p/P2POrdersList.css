@@ -1,3 +1,175 @@
 .p2p-orders {
   padding-bottom: 116px;
 }
+
+.p2p-orders--loading {
+  overflow: hidden;
+}
+
+.p2p-order-skeleton {
+  position: relative;
+  padding: 18px 20px 21px;
+  border-bottom: 1px solid #151518;
+}
+
+.p2p-order-skeleton.is-featured {
+  width: calc(100% - 40px);
+  margin: 8px 20px 16px;
+  padding: 25px 16px 16px;
+  border-bottom: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #141414;
+}
+
+.p2p-order-skeleton__badge,
+.p2p-order-skeleton__line,
+.p2p-order-skeleton__avatar,
+.p2p-order-skeleton__pill,
+.p2p-order-skeleton__price,
+.p2p-order-skeleton__buy {
+  position: relative;
+  overflow: hidden;
+  background: #141519;
+}
+
+.p2p-order-skeleton__badge::after,
+.p2p-order-skeleton__line::after,
+.p2p-order-skeleton__avatar::after,
+.p2p-order-skeleton__pill::after,
+.p2p-order-skeleton__price::after,
+.p2p-order-skeleton__buy::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.085) 34%,
+    rgba(255, 255, 255, 0) 64%
+  );
+  transform: translateX(-100%);
+  animation: p2p-skeleton-shimmer 1.25s ease-in-out infinite;
+  content: '';
+}
+
+.p2p-order-skeleton__badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 19px;
+  border-radius: 0 5px 0 8px;
+}
+
+.p2p-order-skeleton__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.p2p-order-skeleton__merchant {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.p2p-order-skeleton__avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.p2p-order-skeleton__line {
+  display: block;
+  border-radius: 999px;
+}
+
+.p2p-order-skeleton__line.is-name {
+  width: 74px;
+  height: 13px;
+}
+
+.p2p-order-skeleton__line.is-completion {
+  width: 82px;
+  height: 10px;
+}
+
+.p2p-order-skeleton__meta {
+  min-height: 17px;
+  margin-top: 6px;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.p2p-order-skeleton__line.is-time {
+  width: 38px;
+  height: 10px;
+}
+
+.p2p-order-skeleton__pill {
+  width: 108px;
+  height: 17px;
+  border-radius: 10px;
+}
+
+.p2p-order-skeleton__line.is-orders {
+  width: 78px;
+  height: 10px;
+  margin-left: auto;
+}
+
+.p2p-order-skeleton__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px;
+  align-items: end;
+  column-gap: 14px;
+}
+
+.p2p-order-skeleton__price {
+  width: 110px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.p2p-order-skeleton__line.is-detail-long {
+  width: 172px;
+  height: 11px;
+  margin-top: 12px;
+}
+
+.p2p-order-skeleton__line.is-detail-medium {
+  width: 128px;
+  height: 11px;
+  margin-top: 8px;
+}
+
+.p2p-order-skeleton__methods {
+  margin-top: 9px;
+  display: flex;
+  gap: 12px;
+}
+
+.p2p-order-skeleton__line.is-method {
+  width: 92px;
+  height: 10px;
+}
+
+.p2p-order-skeleton__line.is-method.short {
+  width: 68px;
+}
+
+.p2p-order-skeleton__buy {
+  width: 100px;
+  height: 29px;
+  border-radius: 17px;
+}
+
+@keyframes p2p-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AppShell } from '../layout/AppShell'
 import { P2PBottomNav } from './P2PBottomNav'
 import { P2PFilterBar } from './P2PFilterBar'
@@ -12,6 +12,28 @@ import './P2PPage.css'
 export function P2PPage({ initialSection = 'p2p', onBack }) {
   const [activeSection, setActiveSection] = useState(initialSection)
   const [isProfileDetailsOpen, setIsProfileDetailsOpen] = useState(false)
+  const [isOrdersSkeletonVisible, setIsOrdersSkeletonVisible] = useState(
+    initialSection === 'p2p',
+  )
+  const skeletonTimerRef = useRef(null)
+
+  useEffect(() => {
+    if (activeSection !== 'p2p') {
+      window.clearTimeout(skeletonTimerRef.current)
+      setIsOrdersSkeletonVisible(false)
+      return
+    }
+
+    setIsOrdersSkeletonVisible(true)
+    window.clearTimeout(skeletonTimerRef.current)
+    skeletonTimerRef.current = window.setTimeout(() => {
+      setIsOrdersSkeletonVisible(false)
+    }, 950)
+
+    return () => {
+      window.clearTimeout(skeletonTimerRef.current)
+    }
+  }, [activeSection])
 
   const navigateSection = (section) => {
     setIsProfileDetailsOpen(false)
@@ -45,7 +67,7 @@ export function P2PPage({ initialSection = 'p2p', onBack }) {
           <P2PNotice />
           <P2PTradeSwitch />
           <P2PFilterBar />
-          <P2POrdersList />
+          <P2POrdersList isLoading={isOrdersSkeletonVisible} />
         </main>
       )}
     </AppShell>

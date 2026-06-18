@@ -12,6 +12,14 @@
   padding: 40px 18px;
 }
 
+.loading-overlay--p2p {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 28vh;
+  background: #121117;
+}
+
 .loading-overlay__brand {
   display: flex;
   align-items: center;
@@ -32,6 +40,60 @@
 .loading-overlay__brand-letter--accent {
   color: #f7a52c;
   animation: splash-brand-accent-rise 1.35s ease forwards;
+}
+
+.loading-overlay__p2p-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.loading-overlay__p2p-bars {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  overflow: visible;
+}
+
+.loading-overlay__p2p-bars span {
+  width: 5px;
+  display: block;
+  background: #fff;
+  opacity: 1;
+  transform-origin: center center;
+  animation:
+    p2p-bar-reveal 1.05s ease-in-out infinite,
+    p2p-bar-wave 1.05s ease-in-out infinite;
+}
+
+.loading-overlay__p2p-bars .is-short {
+  height: 13px;
+}
+
+.loading-overlay__p2p-bars .is-tall {
+  height: 24px;
+}
+
+.loading-overlay__p2p-bars span:nth-child(1) {
+  animation-delay: 0s, 0s;
+}
+
+.loading-overlay__p2p-bars span:nth-child(2) {
+  animation-delay: 0.18s, 0.18s;
+}
+
+.loading-overlay__p2p-bars span:nth-child(3) {
+  animation-delay: 0.36s, 0.36s;
+}
+
+.loading-overlay__p2p-label {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1;
 }
 
 .loading-overlay__bars {
@@ -73,6 +135,42 @@
   40% {
     height: 34px;
     opacity: 1;
+  }
+}
+
+@keyframes p2p-bar-reveal {
+  0% {
+    opacity: 0;
+    background: rgba(182, 184, 190, 0.35);
+    transform: scaleY(0.18) translateY(0);
+  }
+
+  18% {
+    opacity: 0.95;
+    background: rgba(188, 190, 196, 0.62);
+    transform: scaleY(0.72) translateY(0);
+  }
+
+  34%,
+  100% {
+    opacity: 1;
+    background: #fff;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+@keyframes p2p-bar-wave {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  35% {
+    translate: 0 -5px;
+  }
+
+  60% {
+    translate: 0 -1px;
   }
 }
 

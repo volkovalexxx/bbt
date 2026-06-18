@@ -324,17 +324,41 @@
         "quantity": "30 USDT",
         "time": "4мин."
       },
-      {
-        "completion": "565 Ордера (100%)",
-        "limit": "1000,00 - 2500,00 RUB",
-        "methods": [
-          "Bank Transfer"
-        ],
-        "name": "DominateX",
-        "price": "74,20",
-        "quantity": "54 USDT"
-      }
-    ],
+    {
+      "completion": "565 Ордера (100%)",
+      "limit": "1000,00 - 2500,00 RUB",
+      "methods": [
+        "Bank Transfer"
+      ],
+      "name": "DominateX",
+      "price": "74,20",
+      "quantity": "54 USDT",
+      "time": "3мин."
+    },
+    {
+      "completion": "214 Ордера (99%)",
+      "limit": "3000,00 - 12000,00 RUB",
+      "methods": [
+        "Bank Transfer",
+        "Наличные"
+      ],
+      "name": "NordFlow",
+      "price": "73,88",
+      "quantity": "85 USDT",
+      "time": "2мин."
+    },
+    {
+      "completion": "127 Ордера (98%)",
+      "limit": "800,00 - 3500,00 RUB",
+      "methods": [
+        "Bank Transfer"
+      ],
+      "name": "CapitalNode",
+      "price": "74,08",
+      "quantity": "42 USDT",
+      "time": "5мин."
+    }
+  ],
     "profile": {
       "badges": {
         "merchant": true,

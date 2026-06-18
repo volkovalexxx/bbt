@@ -16,6 +16,7 @@ function isP2PHash() {
 
 function AppContent({
   isLoading,
+  loadingLabel,
   onOpenHomeProfile,
   onOpenP2P,
   onOpenSecretSettings,
@@ -62,7 +63,7 @@ function AppContent({
           onOpenServices={onOpenServices}
         />
       )}
-      {isLoading ? <LoadingOverlay /> : null}
+      {isLoading ? <LoadingOverlay label={loadingLabel} variant="p2p" /> : null}
     </>
   )
 }
@@ -72,6 +73,7 @@ export default function App() {
   const bootTimer = useRef(null)
   const [screen, setScreen] = useState(() => (isP2PHash() ? 'p2p' : 'home'))
   const [isLoading, setIsLoading] = useState(false)
+  const [loadingLabel, setLoadingLabel] = useState('Fiat P2P')
   const [isBootLoading, setIsBootLoading] = useState(true)
 
   useEffect(() => {
@@ -94,12 +96,13 @@ export default function App() {
 
   const openP2P = () => {
     window.clearTimeout(loadingTimer.current)
+    setLoadingLabel('Fiat P2P')
     setIsLoading(true)
     loadingTimer.current = window.setTimeout(() => {
       window.location.hash = 'p2p'
       setScreen('p2p')
       setIsLoading(false)
-    }, 1_000)
+    }, 720)
   }
 
   const openHome = () => {
@@ -117,8 +120,12 @@ export default function App() {
 
   const openHomeProfile = () => {
     window.clearTimeout(loadingTimer.current)
-    setIsLoading(false)
-    setScreen('home-profile')
+    setLoadingLabel('User Center')
+    setIsLoading(true)
+    loadingTimer.current = window.setTimeout(() => {
+      setScreen('home-profile')
+      setIsLoading(false)
+    }, 720)
   }
 
   const openServices = () => {
@@ -138,6 +145,7 @@ export default function App() {
       {isBootLoading ? <LoadingOverlay variant="splash" /> : null}
       <AppContent
         isLoading={isLoading}
+        loadingLabel={loadingLabel}
         onOpenHome={openHome}
         onOpenHomeProfile={openHomeProfile}
         onOpenP2P={openP2P}

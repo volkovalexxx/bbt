@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CircleHelp, Eye, EyeOff, ThumbsDown, ThumbsUp } from 'lucide-react'
 import { useAppSettings } from '../../../settings/AppSettingsContext'
 import { ProfileHeader } from './ProfileHeader'
@@ -28,7 +28,31 @@ function ValueNote({ note, type }) {
   return <span className="p2p-profile-details__value-note">{note}</span>
 }
 
-function Row({ item }) {
+function NameRevealLoader() {
+  return (
+    <div className="p2p-profile-details__reveal-loader" role="status" aria-label="Раскрытие имени">
+      <div className="p2p-profile-details__reveal-logo">
+        <span className="p2p-profile-details__reveal-base" aria-hidden="true">
+          <span>B</span>
+          <span>Y</span>
+          <span>B</span>
+          <span className="is-accent">I</span>
+          <span>T</span>
+        </span>
+        <span className="p2p-profile-details__reveal-fill" aria-hidden="true">
+          <span>B</span>
+          <span>Y</span>
+          <span>B</span>
+          <span className="is-accent">I</span>
+          <span>T</span>
+        </span>
+      </div>
+    </div>
+  )
+}
+
+function Row({ item, onRevealStart }) {
+  const timerRef = useRef(null)
   const [isHidden, setIsHidden] = useState(true)
   const displayValue =
     item.valueIcon === 'hidden' && item.revealedValue
@@ -36,6 +60,25 @@ function Row({ item }) {
         ? item.value
         : item.revealedValue
       : item.value
+
+  useEffect(() => () => window.clearTimeout(timerRef.current), [])
+
+  const handleToggle = () => {
+    if (item.valueIcon !== 'hidden') {
+      return
+    }
+
+    if (!isHidden) {
+      setIsHidden(true)
+      return
+    }
+
+    onRevealStart?.()
+    window.clearTimeout(timerRef.current)
+    timerRef.current = window.setTimeout(() => {
+      setIsHidden(false)
+    }, 1_250)
+  }
 
   return (
     <div className="p2p-profile-details__row">
@@ -47,10 +90,7 @@ function Row({ item }) {
         <div className="p2p-profile-details__value-main">
           <strong>{displayValue}</strong>
           {item.valueIcon === 'hidden' ? (
-            <button
-              className="p2p-profile-details__toggle"
-              onClick={() => setIsHidden((current) => !current)}
-            >
+            <button className="p2p-profile-details__toggle" onClick={handleToggle}>
               {isHidden ? <EyeOff size={14} strokeWidth={2} /> : <Eye size={14} strokeWidth={2} />}
             </button>
           ) : null}
@@ -64,6 +104,23 @@ function Row({ item }) {
 export function ProfileDetailsPage({ onBack }) {
   const { settings } = useAppSettings()
   const { user, details } = settings.p2p.profile
+  const revealLoaderTimer = useRef(null)
+  const [isRevealLoading, setIsRevealLoading] = useState(false)
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(revealLoaderTimer.current)
+    },
+    [],
+  )
+
+  const handleRevealStart = () => {
+    window.clearTimeout(revealLoaderTimer.current)
+    setIsRevealLoading(true)
+    revealLoaderTimer.current = window.setTimeout(() => {
+      setIsRevealLoading(false)
+    }, 1_250)
+  }
 
   return (
     <main className="p2p-profile-details">
@@ -77,10 +134,11 @@ export function ProfileDetailsPage({ onBack }) {
       {details.sections.map((section, index) => (
         <section className="p2p-profile-details__section" key={index}>
           {section.map((item) => (
-            <Row item={item} key={item.label} />
+            <Row item={item} key={item.label} onRevealStart={handleRevealStart} />
           ))}
         </section>
       ))}
+      {isRevealLoading ? <NameRevealLoader /> : null}
     </main>
   )
 }
