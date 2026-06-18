@@ -1,6 +1,6 @@
 .p2p-profile-identity {
   min-height: 78px;
-  padding: 0 20px 18px;
+  padding: 0 12px 18px;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
   column-gap: 17px;

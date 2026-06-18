@@ -1,5 +1,6 @@
 .p2p-profile-page {
   min-height: 100%;
+  padding-inline: 8px;
   color: #fff;
   background: #000;
 }
