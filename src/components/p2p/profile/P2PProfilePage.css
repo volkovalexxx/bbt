@@ -3,3 +3,12 @@
   color: #fff;
   background: #000;
 }
+
+.p2p-profile-page__stats-wrap {
+  border-top: 7px solid #101010;
+  border-bottom: 7px solid #101010;
+}
+
+.p2p-profile-page__stats-wrap.has-banner {
+  border-top: 0;
+}

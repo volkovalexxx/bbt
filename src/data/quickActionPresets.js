@@ -5,6 +5,7 @@ import moreIcon from '../assets/bybit/icons/more.png'
 import p2pIcon from '../assets/bybit/icons/quick-p2p.png'
 import walletIcon from '../assets/bybit/icons/wallet-web3-program.svg'
 import alphaIcon from '../assets/bybit/services/alpha.svg'
+import ballIcon from '../assets/bybit/quick-actions/ball.png'
 import bonusIcon from '../assets/bybit/services/bonus.svg'
 import copytradeIcon from '../assets/bybit/services/copytrade.svg'
 import depositIcon from '../assets/bybit/services/deposit.svg'
@@ -14,14 +15,15 @@ import tradfiIcon from '../assets/bybit/services/tradfi.svg'
 const actionDefinitions = {
   alpha: { label: 'Alpha', type: 'alpha' },
   bonus: { label: 'Бонусы', type: 'bonus' },
-  copytrade: { label: 'Копитрейдинг', type: 'copytrade' },
+  copytrade: { label: 'Копи-\nтрейдинг', type: 'copytrade' },
   deposit: { label: 'Депозит', type: 'deposit' },
   earn: { glyph: '\ue8fe', label: 'Bybit Earn', type: 'earn' },
   more: { glyph: '\ue8ec', label: 'Ещё', type: 'more' },
   p2p: { glyph: '\ue8cd', label: 'P2P торговля', type: 'p2p' },
   tradfi: { label: 'TradFi', type: 'tradfi' },
-  tradingBot: { label: 'Trading Bot', type: 'tradingBot' },
+  tradingBot: { badge: 'HOT', label: 'Trading Bot', type: 'tradingBot' },
   wallet: { glyph: '\ue766', label: 'Кошелёк', type: 'wallet' },
+  worldCup: { badge: 'NEW', label: 'Чемпионат\nмира по', type: 'worldCup' },
 }
 
 export const quickActionVisuals = {
@@ -35,17 +37,18 @@ export const quickActionVisuals = {
   tradfi: { image: tradfiIcon },
   tradingBot: { image: tradingBotIcon },
   wallet: { icon: Wallet, image: walletIcon },
+  worldCup: { image: ballIcon, servicesImage: ballIcon },
 }
 
 const presetTypes = [
-  ['p2p', 'wallet', 'tradingBot', 'more'],
-  ['deposit', 'tradingBot', 'alpha', 'more'],
+  ['p2p', 'wallet', 'worldCup', 'more'],
+  ['deposit', 'tradingBot', 'worldCup', 'more'],
+  ['p2p', 'wallet', 'tradingBot', 'alpha', 'deposit', 'bonus', 'copytrade', 'tradfi', 'worldCup', 'more'],
 ]
 
 const randomPresetPool = [
   'p2p',
   'wallet',
-  'earn',
   'deposit',
   'tradingBot',
   'alpha',
@@ -73,11 +76,15 @@ function shuffle(source) {
 
 export function createQuickActionPreset(index) {
   if (index === 2) {
-    return [...shuffle(randomPresetPool).slice(0, 3), 'more'].map(createAction)
+    return [...shuffle(randomPresetPool).slice(0, 2), 'worldCup', 'more'].map(createAction)
+  }
+
+  if (index === 3) {
+    return presetTypes[2].map(createAction)
   }
 
   return (presetTypes[index] ?? presetTypes[0]).map(createAction)
 }
 
-export const quickActionPresetCount = 3
+export const quickActionPresetCount = 4
 export const defaultQuickActions = createQuickActionPreset(0)

@@ -10,9 +10,16 @@ import {
 } from './servicesData'
 import './ServicesPage.css'
 
-function ServiceIcon({ icon: Icon, image, label, glyph, family }) {
+function ServiceIcon({ icon: Icon, image, label, glyph, family, type }) {
   if (image) {
-    return <img className="services-page__icon-image" src={image} alt="" aria-hidden="true" />
+    return (
+      <img
+        className={`services-page__icon-image services-page__icon-image--${type}`.trim()}
+        src={image}
+        alt=""
+        aria-hidden="true"
+      />
+    )
   }
 
   if (glyph) {
@@ -35,7 +42,7 @@ function ServicesGrid({ items, columns = 4 }) {
       className="services-page__grid"
       style={{ '--services-columns': columns }}
     >
-      {items.map(({ badge, icon, image, label, glyph, family }) => (
+      {items.map(({ badge, icon, image, label, glyph, family, type }) => (
         <button className="services-page__grid-item" key={label}>
           <span className="services-page__grid-icon">
             <ServiceIcon
@@ -44,6 +51,7 @@ function ServicesGrid({ items, columns = 4 }) {
               label={label}
               glyph={glyph}
               family={family}
+              type={type}
             />
             {badge ? <b>{badge}</b> : null}
           </span>
@@ -95,6 +103,7 @@ export function ServicesPage({ onBack, onOpenSearch }) {
                       : glyph ?? quickActionVisuals[type]?.glyph
                   }
                   family={family ?? quickActionVisuals[type]?.family}
+                  type={type}
                 />
               </span>
             ))}

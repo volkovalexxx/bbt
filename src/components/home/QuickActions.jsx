@@ -5,12 +5,23 @@ import './QuickActions.css'
 
 export function QuickActions({ onOpenP2P, onOpenServices }) {
   const { settings } = useAppSettings()
+  const isExpandedPreset = settings.home.quickActions.length > 4
+  const isWidePreset = settings.home.quickActions.length > 8
 
   return (
-    <nav className="quick-actions" aria-label="Быстрые действия">
+    <nav
+      className={[
+        'quick-actions',
+        isExpandedPreset ? 'quick-actions--expanded' : '',
+        isWidePreset ? 'quick-actions--wide' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      aria-label="Быстрые действия"
+    >
       {settings.home.quickActions.map((action) => (
         <button
-          className="quick-action"
+          className={`quick-action quick-action--${action.type}`}
           key={action.label}
           onClick={
             action.type === 'p2p'
@@ -35,8 +46,13 @@ export function QuickActions({ onOpenP2P, onOpenServices }) {
                 size={24}
               />
             )}
+            {action.badge ? <b className="quick-action__badge">{action.badge}</b> : null}
           </span>
-          <span className="quick-action__label">{action.label}</span>
+          <span
+            className={`quick-action__label ${String(action.label).includes('\n') ? 'quick-action__label--multiline' : ''}`.trim()}
+          >
+            {String(action.label)}
+          </span>
         </button>
       ))}
     </nav>

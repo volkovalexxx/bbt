@@ -1,7 +1,9 @@
 .p2p-profile-stats {
   padding: 19px 20px 14px;
-  border-top: 7px solid #101010;
-  border-bottom: 7px solid #101010;
+}
+
+.p2p-profile-stats.has-banner {
+  padding-top: 15px;
 }
 
 .p2p-profile-stats__row {

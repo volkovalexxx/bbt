@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { SecretSettingsPage } from './components/admin/SecretSettingsPage'
 import { HomePage } from './components/home/HomePage'
+import { HomeProfilePage } from './components/home-profile/HomeProfilePage'
 import { AppShell } from './components/layout/AppShell'
 import { ServicesPage } from './components/services/ServicesPage'
 import { ServicesSearchPage } from './components/services/ServicesSearchPage'
@@ -15,6 +16,7 @@ function isP2PHash() {
 
 function AppContent({
   isLoading,
+  onOpenHomeProfile,
   onOpenP2P,
   onOpenSecretSettings,
   onOpenHome,
@@ -48,8 +50,13 @@ function AppContent({
         <AppShell nav={null}>
           <ServicesSearchPage onBack={onOpenServices} onOpenP2P={onOpenP2P} />
         </AppShell>
+      ) : screen === 'home-profile' ? (
+        <AppShell nav={null}>
+          <HomeProfilePage onBack={onOpenHome} />
+        </AppShell>
       ) : (
         <HomePage
+          onOpenHomeProfile={onOpenHomeProfile}
           onOpenP2P={onOpenP2P}
           onOpenSecretSettings={onOpenSecretSettings}
           onOpenServices={onOpenServices}
@@ -108,6 +115,12 @@ export default function App() {
     setScreen('settings')
   }
 
+  const openHomeProfile = () => {
+    window.clearTimeout(loadingTimer.current)
+    setIsLoading(false)
+    setScreen('home-profile')
+  }
+
   const openServices = () => {
     window.clearTimeout(loadingTimer.current)
     setIsLoading(false)
@@ -126,6 +139,7 @@ export default function App() {
       <AppContent
         isLoading={isLoading}
         onOpenHome={openHome}
+        onOpenHomeProfile={openHomeProfile}
         onOpenP2P={openP2P}
         onOpenSecretSettings={openSecretSettings}
         onOpenServices={openServices}

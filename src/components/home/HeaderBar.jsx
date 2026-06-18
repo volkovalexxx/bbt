@@ -9,7 +9,7 @@ import { useAppSettings } from '../../settings/AppSettingsContext'
 import { BybitIcon } from '../ui/BybitIcon'
 import './HeaderBar.css'
 
-export function HeaderBar({ onOpenSecretSettings }) {
+export function HeaderBar({ onOpenHomeProfile, onOpenSecretSettings }) {
   const bellClickTimesRef = useRef([])
   const scannerClickTimesRef = useRef([])
   const { saveSettings, settings } = useAppSettings()
@@ -53,7 +53,7 @@ export function HeaderBar({ onOpenSecretSettings }) {
 
   return (
     <header className="header-bar">
-      <button className="avatar-button" aria-label="Профиль">
+      <button className="avatar-button" aria-label="Профиль" onClick={onOpenHomeProfile}>
         <img className="avatar-button__image" src={avatarKyc} alt="" />
       </button>
 

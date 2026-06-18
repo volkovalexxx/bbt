@@ -9,11 +9,11 @@ export const defaultSettings = {
       totalAssetsLabel: 'Общие активы',
     },
     bottomNavItems: [
-      { active: true, glyph: '\ue900', label: 'Главная' },
-      { glyph: '\ue901', label: 'Рынки' },
-      { glyph: '\ue902', label: 'Торговать' },
-      { glyph: '\ue903', label: 'Earn' },
-      { glyph: '\ue904', label: 'Активы' },
+      { active: true, icon: 'home', label: 'Главная' },
+      { icon: 'markets', label: 'Рынки' },
+      { icon: 'trade', label: 'Торговать' },
+      { icon: 'earn', label: 'Earn' },
+      { icon: 'activities', label: 'Активы' },
     ],
     header: {
       searchText: 'EDGE/USDT',
@@ -22,6 +22,30 @@ export const defaultSettings = {
         { label: 'Пригласить друга', glyph: '\ue861' },
         { badge: '42', label: 'Уведомления', glyph: '\ue72b' },
       ],
+    },
+    profilePage: {
+      allServicesLabel: 'Все сервисы',
+      footerLinks: ['Bybit Lite', 'О Bybit'],
+      promo: {
+        buttonLabel: 'Внести',
+        description: 'Внесите 50,000 USDT и получите пробный период VIP 1 и другие особые привилегии!',
+        linkLabel: 'VIP-преимущества',
+        title: 'Оценить VIP-привилегии',
+      },
+      recentTitle: 'Недавно использовано',
+      shortcuts: [
+        { icon: 'card', subtitle: 'Подать заявку', title: 'Карта Bybit' },
+        { icon: 'bonus', subtitle: 'Посмотреть', title: 'Бонусы' },
+        { icon: 'referral', subtitle: 'Пригласить', title: 'Приглашайт...' },
+      ],
+      topTools: ['support', 'security', 'account'],
+      user: {
+        name: 'tra***@****',
+        siteLabel: 'Site: Bybit Glo...',
+        uid: '554656968',
+        verificationLabel: 'Верификац...',
+        vipLevelLabel: 'Без VIP-уро...',
+      },
     },
     marketRows: [
       {
@@ -187,6 +211,11 @@ export const defaultSettings = {
         vipSilver: false,
       },
       helpLabel: 'Help & Support',
+      makerBanner: {
+        description: 'Upgrade to verified advertiser for more benefits',
+        title: 'Обычный мейкер',
+        visible: true,
+      },
       presence: {
         online: true,
         onlineLabel: 'Онлайн',

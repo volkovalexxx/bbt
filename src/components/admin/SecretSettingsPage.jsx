@@ -156,6 +156,7 @@ export function SecretSettingsPage({ onBack }) {
 
   const profileMenu = draft.p2p.profile.menuGroups
   const profileStats = draft.p2p.profile.stats
+  const homeProfile = draft.home.profilePage
   const profileBadges = draft.p2p.profile.badges
   const profilePresence = draft.p2p.profile.presence
   const profileStatuses = draft.p2p.profile.statuses
@@ -197,6 +198,27 @@ export function SecretSettingsPage({ onBack }) {
               label="Ник"
               onChange={(event) => handleChange(['p2p', 'profile', 'user', 'name'], event.target.value)}
               value={draft.p2p.profile.user.name}
+            />
+            <Toggle
+              checked={Boolean(draft.p2p.profile.makerBanner?.visible)}
+              label="Плашка мейкера"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'makerBanner', 'visible'], event.target.checked)
+              }
+            />
+            <Field
+              label="Заголовок плашки"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'makerBanner', 'title'], event.target.value)
+              }
+              value={draft.p2p.profile.makerBanner?.title ?? ''}
+            />
+            <Field
+              label="Описание плашки"
+              onChange={(event) =>
+                handleChange(['p2p', 'profile', 'makerBanner', 'description'], event.target.value)
+              }
+              value={draft.p2p.profile.makerBanner?.description ?? ''}
             />
             <Toggle
               checked={Boolean(profileBadges?.merchant)}
@@ -315,6 +337,144 @@ export function SecretSettingsPage({ onBack }) {
             type="number"
             value={draft.home.assetOverview.balanceUsd}
           />
+        </Section>
+
+        <Section title="Профиль главной">
+          <div className="secret-settings-page__grid">
+            <Field
+              label="Ник"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'user', 'name'], event.target.value)
+              }
+              value={homeProfile.user.name}
+            />
+            <Field
+              label="UID"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'user', 'uid'], event.target.value)
+              }
+              value={homeProfile.user.uid}
+            />
+            <Field
+              label="Site"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'user', 'siteLabel'], event.target.value)
+              }
+              value={homeProfile.user.siteLabel}
+            />
+            <Field
+              label="Бейдж верификации"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'user', 'verificationLabel'], event.target.value)
+              }
+              value={homeProfile.user.verificationLabel}
+            />
+            <Field
+              label="Бейдж VIP"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'user', 'vipLevelLabel'], event.target.value)
+              }
+              value={homeProfile.user.vipLevelLabel}
+            />
+            <Field
+              label="VIP заголовок"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'promo', 'title'], event.target.value)
+              }
+              value={homeProfile.promo.title}
+            />
+            <Field
+              label="VIP описание"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'promo', 'description'], event.target.value)
+              }
+              value={homeProfile.promo.description}
+            />
+            <Field
+              label="VIP ссылка"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'promo', 'linkLabel'], event.target.value)
+              }
+              value={homeProfile.promo.linkLabel}
+            />
+            <Field
+              label="VIP кнопка"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'promo', 'buttonLabel'], event.target.value)
+              }
+              value={homeProfile.promo.buttonLabel}
+            />
+            <Field
+              label="Карта Bybit"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'shortcuts', 0, 'title'], event.target.value)
+              }
+              value={homeProfile.shortcuts[0].title}
+            />
+            <Field
+              label="Подпись карты"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'shortcuts', 0, 'subtitle'], event.target.value)
+              }
+              value={homeProfile.shortcuts[0].subtitle}
+            />
+            <Field
+              label="Бонусы"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'shortcuts', 1, 'title'], event.target.value)
+              }
+              value={homeProfile.shortcuts[1].title}
+            />
+            <Field
+              label="Подпись бонусов"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'shortcuts', 1, 'subtitle'], event.target.value)
+              }
+              value={homeProfile.shortcuts[1].subtitle}
+            />
+            <Field
+              label="Реферал"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'shortcuts', 2, 'title'], event.target.value)
+              }
+              value={homeProfile.shortcuts[2].title}
+            />
+            <Field
+              label="Подпись реферала"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'shortcuts', 2, 'subtitle'], event.target.value)
+              }
+              value={homeProfile.shortcuts[2].subtitle}
+            />
+            <Field
+              label="Недавно использовано"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'recentTitle'], event.target.value)
+              }
+              value={homeProfile.recentTitle}
+            />
+            <Field
+              label="Кнопка сервисов"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'allServicesLabel'], event.target.value)
+              }
+              value={homeProfile.allServicesLabel}
+            />
+            <Field
+              label="Нижний левый текст"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'footerLinks', 0], event.target.value)
+              }
+              value={homeProfile.footerLinks[0]}
+            />
+            <Field
+              label="Нижний правый текст"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'footerLinks', 1], event.target.value)
+              }
+              value={homeProfile.footerLinks[1]}
+            />
+          </div>
         </Section>
 
         <Section title="P2P ордеры">

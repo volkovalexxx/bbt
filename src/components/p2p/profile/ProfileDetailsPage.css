@@ -9,6 +9,10 @@
   background: #161616;
 }
 
+.p2p-profile-details__section + .p2p-profile-details__section {
+  margin-top: 8px;
+}
+
 .p2p-profile-details__row {
   min-height: 49px;
   display: flex;

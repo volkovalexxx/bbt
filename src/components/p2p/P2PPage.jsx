@@ -11,8 +11,10 @@ import './P2PPage.css'
 
 export function P2PPage({ initialSection = 'p2p', onBack }) {
   const [activeSection, setActiveSection] = useState(initialSection)
+  const [isProfileDetailsOpen, setIsProfileDetailsOpen] = useState(false)
 
   const navigateSection = (section) => {
+    setIsProfileDetailsOpen(false)
     setActiveSection(section)
 
     if (section === 'profile') {
@@ -26,10 +28,17 @@ export function P2PPage({ initialSection = 'p2p', onBack }) {
 
   return (
     <AppShell
-      nav={<P2PBottomNav activeKey={activeSection} onNavigate={navigateSection} />}
+      nav={
+        isProfileDetailsOpen
+          ? null
+          : <P2PBottomNav activeKey={activeSection} onNavigate={navigateSection} />
+      }
     >
       {activeSection === 'profile' ? (
-        <P2PProfilePage onBack={openP2PSection} />
+        <P2PProfilePage
+          onBack={openP2PSection}
+          onDetailsViewChange={setIsProfileDetailsOpen}
+        />
       ) : (
         <main className="p2p-page">
           <P2PHeader onBack={onBack} />

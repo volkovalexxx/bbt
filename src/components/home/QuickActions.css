@@ -5,6 +5,15 @@
   column-gap: 22px;
 }
 
+.quick-actions--expanded {
+  row-gap: 16px;
+}
+
+.quick-actions--wide {
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 14px;
+}
+
 .quick-action {
   min-width: 0;
   display: flex;
@@ -15,6 +24,7 @@
 }
 
 .quick-action__bubble {
+  position: relative;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -59,6 +69,36 @@
   text-align: center;
 }
 
+.quick-actions--expanded .quick-action__label {
+  white-space: normal;
+}
+
+.quick-actions--wide .quick-action__label {
+  font-size: 11px;
+}
+
+.quick-action__label--multiline {
+  white-space: pre-line;
+}
+
+.quick-action__badge {
+  position: absolute;
+  top: -2px;
+  right: -10px;
+  min-width: 24px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1b140e;
+  background: #ffa12c;
+  font-size: 9px;
+  font-weight: 480;
+  line-height: 1;
+}
+
 .quick-icon {
   color: #fff;
 }
@@ -92,6 +132,11 @@
   border-radius: 50%;
   object-fit: cover;
   transform: translate(-50%, -50%);
+}
+
+.quick-action__image--worldCup {
+  transform: scale(1.62);
+  transform-origin: center;
 }
 
 .quick-icon--wallet {

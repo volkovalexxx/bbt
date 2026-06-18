@@ -35,8 +35,30 @@
   height: 26px;
 }
 
+.bottom-nav__image {
+  width: 26px;
+  height: 26px;
+  display: block;
+  object-fit: contain;
+}
+
+.bottom-nav__image--trade {
+  transform: scale(1.46);
+  transform-origin: center;
+}
+
+.bottom-nav__image--earn,
+.bottom-nav__image--activities {
+  transform: scale(1.25);
+  transform-origin: center;
+}
+
 .bottom-nav button.is-active {
   color: #fff;
+}
+
+.bottom-nav button.is-active span {
+  color: #fd961c;
 }
 
 .bottom-nav span {

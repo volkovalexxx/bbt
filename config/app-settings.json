@@ -9,23 +9,23 @@
     "bottomNavItems": [
       {
         "active": true,
-        "glyph": "",
+        "icon": "home",
         "label": "Главная"
       },
       {
-        "glyph": "",
+        "icon": "markets",
         "label": "Рынки"
       },
       {
-        "glyph": "",
+        "icon": "trade",
         "label": "Торговать"
       },
       {
-        "glyph": "",
+        "icon": "earn",
         "label": "Earn"
       },
       {
-        "glyph": "",
+        "icon": "activities",
         "label": "Активы"
       }
     ],
@@ -46,6 +46,49 @@
           "glyph": ""
         }
       ]
+    },
+    "profilePage": {
+      "allServicesLabel": "Все сервисы",
+      "footerLinks": [
+        "Bybit Lite",
+        "О Bybit"
+      ],
+      "promo": {
+        "buttonLabel": "Внести",
+        "description": "Внесите 50,000 USDT и получите пробный период VIP 1 и другие особые привилегии!",
+        "linkLabel": "VIP-преимущества",
+        "title": "Оценить VIP-привилегии"
+      },
+      "recentTitle": "Недавно использовано",
+      "shortcuts": [
+        {
+          "icon": "card",
+          "subtitle": "Подать заявку",
+          "title": "Карта Bybit"
+        },
+        {
+          "icon": "bonus",
+          "subtitle": "Посмотреть",
+          "title": "Бонусы"
+        },
+        {
+          "icon": "referral",
+          "subtitle": "Пригласить",
+          "title": "Приглашайт..."
+        }
+      ],
+      "topTools": [
+        "support",
+        "security",
+        "account"
+      ],
+      "user": {
+        "name": "tra***@****",
+        "siteLabel": "Site: Bybit Glo...",
+        "uid": "554656968",
+        "verificationLabel": "Верификац...",
+        "vipLevelLabel": "Без VIP-уро..."
+      }
     },
     "marketRows": [
       {
@@ -137,7 +180,7 @@
         "Выиграй $1 000 000"
       ]
     },
-    "quickActionPresetIndex": 0,
+    "quickActionPresetIndex": 3,
     "quickActions": [
       {
         "glyph": "",
@@ -150,8 +193,34 @@
         "type": "wallet"
       },
       {
+        "badge": "HOT",
         "label": "Trading Bot",
         "type": "tradingBot"
+      },
+      {
+        "label": "Alpha",
+        "type": "alpha"
+      },
+      {
+        "label": "Депозит",
+        "type": "deposit"
+      },
+      {
+        "label": "Бонусы",
+        "type": "bonus"
+      },
+      {
+        "label": "Копи-\nтрейдинг",
+        "type": "copytrade"
+      },
+      {
+        "label": "TradFi",
+        "type": "tradfi"
+      },
+      {
+        "badge": "NEW",
+        "label": "Чемпионат\nмира по",
+        "type": "worldCup"
       },
       {
         "glyph": "",
@@ -274,6 +343,11 @@
         "vipSilver": false
       },
       "helpLabel": "Help & Support",
+      "makerBanner": {
+        "description": "Upgrade to verified advertiser for more benefits",
+        "title": "Обычный мейкер",
+        "visible": true
+      },
       "presence": {
         "online": true,
         "onlineLabel": "Онлайн",
