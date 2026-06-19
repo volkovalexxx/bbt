@@ -1,7 +1,7 @@
 import { Clock, Zap } from 'lucide-react'
 import './P2POrderCard.css'
 
-const methodColors = ['#f7a52c', '#18c284', '#ff425f']
+const methodColors = ['#ff9c2e', '#18c284', '#ff425f']
 
 function MerchantAvatar({ name }) {
   return (
