@@ -375,10 +375,11 @@
       "presence": {
         "online": true,
         "onlineLabel": "Онлайн",
-        "offlineLabel": "Оффлайн"
-      },
-      "details": {
-        "sections": [
+      "offlineLabel": "Оффлайн"
+    },
+    "details": {
+      "requireTwoFactorReveal": true,
+      "sections": [
           [
             {
               "label": "Исполненные ордера за 30 дней",

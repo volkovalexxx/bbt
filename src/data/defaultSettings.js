@@ -241,6 +241,7 @@ export const defaultSettings = {
         offlineLabel: 'Оффлайн',
       },
       details: {
+        requireTwoFactorReveal: true,
         sections: [
           [
             { label: 'Исполненные ордера за 30 дней', value: '0 Ордера' },

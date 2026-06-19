@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ArrowLeft, RotateCcw, Save } from 'lucide-react'
 import { useAppSettings } from '../../settings/AppSettingsContext'
 import { cloneSettings, updateByPath } from './settingsFormUtils'
@@ -14,9 +14,9 @@ function normalizeWholeNonNegative(value) {
   return String(Math.max(0, parsed))
 }
 
-function Section({ children, title }) {
+function Section({ children, sectionRef, title }) {
   return (
-    <section className="secret-settings-page__section">
+    <section className="secret-settings-page__section" ref={sectionRef}>
       <header className="secret-settings-page__section-header">
         <strong>{title}</strong>
       </header>
@@ -126,6 +126,26 @@ export function SecretSettingsPage({ onBack }) {
   const { resetSettings, saveSettings, settings } = useAppSettings()
   const [draft, setDraft] = useState(() => cloneSettings(settings))
   const [isSaving, setIsSaving] = useState(false)
+  const profileSectionRef = useRef(null)
+  const homeSectionRef = useRef(null)
+  const homeProfileSectionRef = useRef(null)
+  const ordersSectionRef = useRef(null)
+  const detailsSectionRef = useRef(null)
+  const sectionRefs = {
+    profile: profileSectionRef,
+    home: homeSectionRef,
+    homeProfile: homeProfileSectionRef,
+    orders: ordersSectionRef,
+    details: detailsSectionRef,
+  }
+
+  const navItems = [
+    { key: 'profile', label: 'Профиль' },
+    { key: 'home', label: 'Главная' },
+    { key: 'homeProfile', label: 'Профиль Home' },
+    { key: 'orders', label: 'P2P ордеры' },
+    { key: 'details', label: 'Больше данных' },
+  ]
 
   const handleChange = (path, nextValue) => {
     setDraft((current) => updateByPath(current, path, nextValue))
@@ -168,6 +188,13 @@ export function SecretSettingsPage({ onBack }) {
   const ratingLikes = normalizeWholeNonNegative(ratingVotes[0] ?? '0')
   const ratingDislikes = normalizeWholeNonNegative(ratingVotes[1] ?? '0')
 
+  const scrollToSection = (key) => {
+    sectionRefs[key]?.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+
   return (
     <main className="secret-settings-page">
       <header className="secret-settings-page__header">
@@ -190,8 +217,21 @@ export function SecretSettingsPage({ onBack }) {
         </div>
       </header>
 
+      <nav className="secret-settings-page__nav" aria-label="Навигация по настройкам">
+        {navItems.map((item) => (
+          <button
+            className="secret-settings-page__nav-chip"
+            key={item.key}
+            onClick={() => scrollToSection(item.key)}
+            type="button"
+          >
+            {item.label}
+          </button>
+        ))}
+      </nav>
+
       <div className="secret-settings-page__content">
-        <Section title="Профиль">
+        <Section sectionRef={sectionRefs.profile} title="Профиль">
           <div className="secret-settings-page__grid">
             <Field
               label="Ник"
@@ -320,7 +360,7 @@ export function SecretSettingsPage({ onBack }) {
           </div>
         </Section>
 
-        <Section title="Главная">
+        <Section sectionRef={sectionRefs.home} title="Главная">
           <Field
             label="Баланс"
             onChange={(event) =>
@@ -331,7 +371,7 @@ export function SecretSettingsPage({ onBack }) {
           />
         </Section>
 
-        <Section title="Профиль главной">
+        <Section sectionRef={sectionRefs.homeProfile} title="Профиль главной">
           <div className="secret-settings-page__grid">
             <Field
               label="Ник"
@@ -469,7 +509,7 @@ export function SecretSettingsPage({ onBack }) {
           </div>
         </Section>
 
-        <Section title="P2P ордеры">
+        <Section sectionRef={sectionRefs.orders} title="P2P ордеры">
           <div className="secret-settings-page__card">
             <strong className="secret-settings-page__card-title">Первый ордер с оранжевой плашкой</strong>
             <div className="secret-settings-page__grid">
@@ -561,7 +601,7 @@ export function SecretSettingsPage({ onBack }) {
           ))}
         </Section>
 
-        <Section title="Больше данных">
+        <Section sectionRef={sectionRefs.details} title="Больше данных">
           <div className="secret-settings-page__grid">
             <Field
               label="Исполненные ордера за 30 дней"
@@ -636,6 +676,16 @@ export function SecretSettingsPage({ onBack }) {
                 handleChange(['p2p', 'profile', 'details', 'sections', 1, 2, 'revealedValue'], event.target.value)
               }
               value={detailExtra[2].revealedValue ?? ''}
+            />
+            <Toggle
+              checked={Boolean(draft.p2p.profile.details.requireTwoFactorReveal)}
+              label="2FA при раскрытии имени"
+              onChange={(event) =>
+                handleChange(
+                  ['p2p', 'profile', 'details', 'requireTwoFactorReveal'],
+                  event.target.checked,
+                )
+              }
             />
             <Field
               label="Торговый объём за 30 дней"

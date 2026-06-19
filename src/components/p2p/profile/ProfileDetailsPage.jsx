@@ -102,6 +102,18 @@ function IdentityVerificationSheet({ isOpen, isLoading, isClosing, onClose, onCo
     nextCode[index] = nextChar
     setCode(nextCode)
 
+    if (nextChar && index === nextCode.length - 1) {
+      window.setTimeout(() => {
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur()
+        }
+        inputRefs.current[index]?.blur()
+        inputRefs.current[index]?.setAttribute('readonly', 'readonly')
+        inputRefs.current[index]?.removeAttribute('readonly')
+      }, 0)
+      return
+    }
+
     if (nextChar && index < nextCode.length - 1) {
       inputRefs.current[index + 1]?.focus()
     }
@@ -245,6 +257,7 @@ export function ProfileDetailsPage({ onBack }) {
   const closeTimerRef = useRef(null)
   const [isRevealLoading, setIsRevealLoading] = useState(false)
   const [isSheetClosing, setIsSheetClosing] = useState(false)
+  const [directRevealItem, setDirectRevealItem] = useState(null)
 
   const sections = useMemo(() => details.sections, [details.sections])
 
@@ -257,6 +270,21 @@ export function ProfileDetailsPage({ onBack }) {
   )
 
   const handleRevealRequest = (item) => {
+    if (!details.requireTwoFactorReveal) {
+      setDirectRevealItem(item)
+      setIsRevealLoading(true)
+      window.clearTimeout(revealTimerRef.current)
+      revealTimerRef.current = window.setTimeout(() => {
+        setIsRevealLoading(false)
+        setRevealedItems((current) => ({
+          ...current,
+          [item.label]: true,
+        }))
+        setDirectRevealItem(null)
+      }, 1_150)
+      return
+    }
+
     setPendingRevealItem(item)
     setIsSheetClosing(false)
   }
@@ -314,9 +342,10 @@ export function ProfileDetailsPage({ onBack }) {
           ))}
         </section>
       ))}
+      {isRevealLoading && directRevealItem ? <NameRevealLoader /> : null}
       <IdentityVerificationSheet
         isClosing={isSheetClosing}
-        isLoading={isRevealLoading}
+        isLoading={isRevealLoading && Boolean(pendingRevealItem)}
         isOpen={Boolean(pendingRevealItem)}
         onClose={() => {
           if (isRevealLoading) {
