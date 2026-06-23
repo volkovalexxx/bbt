@@ -38,6 +38,35 @@ export const defaultSettings = {
         { icon: 'bonus', subtitle: 'Посмотреть', title: 'Бонусы' },
         { icon: 'referral', subtitle: 'Пригласить', title: 'Приглашайт...' },
       ],
+      userCenter: {
+        logoutLabel: 'Выйти',
+        protect: {
+          actionLabel: 'Активировать код защиты от фишинга',
+          description:
+            'Добавьте код защиты от фишинга в электронные письма и SMS-сообщения от Bybit, чтобы выявлять попытки мошенничества.',
+          title: 'Bybit Protect',
+        },
+        rows: [
+          { icon: 'avatar', label: 'Изображение профиля', trailing: 'avatar' },
+          { icon: 'nickname', label: 'Никнейм', value: 'pet***@****' },
+          { icon: 'uid', label: 'UID', trailing: 'copy', value: '70623588' },
+          {
+            icon: 'verification',
+            label: 'Верификация личности',
+            value: 'Верификация\nУр.1 пройдена',
+          },
+          { icon: 'vip', label: 'VIP-уровень', value: 'Без VIP-уровня', valuePrefix: '0' },
+          { icon: 'fees', label: 'Мои комиссии' },
+          { icon: 'verificationExtra', label: 'Дополнительная\nверификация', value: 'Тикетов: 0' },
+          { icon: 'subaccount', label: 'Субаккаунт' },
+          { icon: 'link', label: 'Привязать аккаунт', trailing: 'socials' },
+          { icon: 'community', label: 'Присоединяйтесь к\nнашему комьюнити' },
+        ],
+        siteChipLabel: 'Site: Bybit Global',
+        tabs: ['Мои данные', 'Безопасность', 'Параметры', 'Об истории'],
+        title: 'Центр пользователя',
+        userName: 'pet***@****',
+      },
       topTools: ['support', 'security', 'account'],
       user: {
         name: 'tra***@****',

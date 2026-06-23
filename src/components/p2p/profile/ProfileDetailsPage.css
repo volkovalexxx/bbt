@@ -1,7 +1,26 @@
 .p2p-profile-details {
-  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   color: #fff;
   background: #000;
+  overflow: hidden;
+}
+
+.p2p-profile-details__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.p2p-profile-details__body-inner {
+  will-change: transform;
+}
+
+.p2p-profile-details__body-inner.is-returning {
+  transition: transform 0.34s cubic-bezier(0.18, 0.9, 0.24, 1);
 }
 
 .p2p-profile-details__section {

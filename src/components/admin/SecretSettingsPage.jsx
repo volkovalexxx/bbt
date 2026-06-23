@@ -506,6 +506,54 @@ export function SecretSettingsPage({ onBack }) {
               }
               value={homeProfile.footerLinks[1]}
             />
+            <Field
+              label="User Center заголовок"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'userCenter', 'title'], event.target.value)
+              }
+              value={homeProfile.userCenter.title}
+            />
+            <Field
+              label="User Center ник"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'userCenter', 'userName'], event.target.value)
+              }
+              value={homeProfile.userCenter.userName}
+            />
+            <Field
+              label="User Center site"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'userCenter', 'siteChipLabel'], event.target.value)
+              }
+              value={homeProfile.userCenter.siteChipLabel}
+            />
+            <Field
+              label="Protect заголовок"
+              onChange={(event) =>
+                handleChange(['home', 'profilePage', 'userCenter', 'protect', 'title'], event.target.value)
+              }
+              value={homeProfile.userCenter.protect.title}
+            />
+            <Field
+              label="Protect описание"
+              onChange={(event) =>
+                handleChange(
+                  ['home', 'profilePage', 'userCenter', 'protect', 'description'],
+                  event.target.value,
+                )
+              }
+              value={homeProfile.userCenter.protect.description}
+            />
+            <Field
+              label="Protect действие"
+              onChange={(event) =>
+                handleChange(
+                  ['home', 'profilePage', 'userCenter', 'protect', 'actionLabel'],
+                  event.target.value,
+                )
+              }
+              value={homeProfile.userCenter.protect.actionLabel}
+            />
           </div>
         </Section>
 

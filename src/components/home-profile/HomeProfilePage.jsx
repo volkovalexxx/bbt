@@ -59,7 +59,7 @@ function RecentIcon({ type }) {
   return <Send size={28} strokeWidth={1.9} />
 }
 
-export function HomeProfilePage({ onBack }) {
+export function HomeProfilePage({ onBack, onOpenUserCenter }) {
   const { settings } = useAppSettings()
   const { profilePage } = settings.home
 
@@ -82,7 +82,7 @@ export function HomeProfilePage({ onBack }) {
         </div>
       </header>
 
-      <section className="home-profile-page__identity">
+      <button className="home-profile-page__identity" onClick={onOpenUserCenter} type="button">
         <img className="home-profile-page__avatar" src={avatarKyc} alt="" />
 
         <div className="home-profile-page__identity-main">
@@ -109,7 +109,7 @@ export function HomeProfilePage({ onBack }) {
             </span>
           </div>
         </div>
-      </section>
+      </button>
 
       <section className="home-profile-page__vip-card">
         <strong>{profilePage.promo.title}</strong>

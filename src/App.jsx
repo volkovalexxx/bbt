@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { SecretSettingsPage } from './components/admin/SecretSettingsPage'
 import { HomePage } from './components/home/HomePage'
 import { HomeProfilePage } from './components/home-profile/HomeProfilePage'
+import { HomeUserCenterPage } from './components/home-profile/HomeUserCenterPage'
 import { AppShell } from './components/layout/AppShell'
 import { ServicesPage } from './components/services/ServicesPage'
 import { ServicesSearchPage } from './components/services/ServicesSearchPage'
@@ -23,9 +24,10 @@ function AppContent({
   onOpenHome,
   onOpenServices,
   onOpenServicesSearch,
+  onOpenUserCenter,
   screen,
 }) {
-  const { isHydrating, lastSavedAt } = useAppSettings()
+  const { isHydrating, lastSavedAt, settings } = useAppSettings()
 
   return (
     <>
@@ -53,7 +55,11 @@ function AppContent({
         </AppShell>
       ) : screen === 'home-profile' ? (
         <AppShell nav={null}>
-          <HomeProfilePage onBack={onOpenHome} />
+          <HomeProfilePage onBack={onOpenHome} onOpenUserCenter={onOpenUserCenter} />
+        </AppShell>
+      ) : screen === 'user-center' ? (
+        <AppShell nav={null}>
+          <HomeUserCenterPage onBack={onOpenHomeProfile} settings={settings.home.profilePage.userCenter} />
         </AppShell>
       ) : (
         <HomePage
@@ -140,6 +146,16 @@ export default function App() {
     setScreen('services-search')
   }
 
+  const openUserCenter = () => {
+    window.clearTimeout(loadingTimer.current)
+    setLoadingLabel('User Center')
+    setIsLoading(true)
+    loadingTimer.current = window.setTimeout(() => {
+      setScreen('user-center')
+      setIsLoading(false)
+    }, 720)
+  }
+
   return (
     <AppSettingsProvider>
       {isBootLoading ? <LoadingOverlay variant="splash" /> : null}
@@ -152,6 +168,7 @@ export default function App() {
         onOpenSecretSettings={openSecretSettings}
         onOpenServices={openServices}
         onOpenServicesSearch={openServicesSearch}
+        onOpenUserCenter={openUserCenter}
         screen={screen}
       />
     </AppSettingsProvider>

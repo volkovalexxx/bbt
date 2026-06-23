@@ -251,6 +251,11 @@ function Row({ item, isRevealed, onRevealRequest, onHide }) {
 export function ProfileDetailsPage({ onBack }) {
   const { settings } = useAppSettings()
   const { user, details } = settings.p2p.profile
+  const bodyRef = useRef(null)
+  const touchStateRef = useRef({
+    isPulling: false,
+    startY: 0,
+  })
   const [revealedItems, setRevealedItems] = useState({})
   const [pendingRevealItem, setPendingRevealItem] = useState(null)
   const revealTimerRef = useRef(null)
@@ -258,6 +263,8 @@ export function ProfileDetailsPage({ onBack }) {
   const [isRevealLoading, setIsRevealLoading] = useState(false)
   const [isSheetClosing, setIsSheetClosing] = useState(false)
   const [directRevealItem, setDirectRevealItem] = useState(null)
+  const [pullOffset, setPullOffset] = useState(0)
+  const [isPullAnimating, setIsPullAnimating] = useState(false)
 
   const sections = useMemo(() => details.sections, [details.sections])
 
@@ -320,6 +327,51 @@ export function ProfileDetailsPage({ onBack }) {
     }))
   }
 
+  const handleBodyTouchStart = (event) => {
+    const bodyNode = bodyRef.current
+    if (!bodyNode) {
+      return
+    }
+
+    touchStateRef.current.startY = event.touches[0].clientY
+    touchStateRef.current.isPulling = bodyNode.scrollTop <= 0
+    if (pullOffset === 0) {
+      setIsPullAnimating(false)
+    }
+  }
+
+  const handleBodyTouchMove = (event) => {
+    const bodyNode = bodyRef.current
+    if (!bodyNode || !touchStateRef.current.isPulling) {
+      return
+    }
+
+    const deltaY = event.touches[0].clientY - touchStateRef.current.startY
+    if (deltaY <= 0) {
+      if (pullOffset !== 0) {
+        setPullOffset(0)
+      }
+      return
+    }
+
+    const nextOffset = Math.min(52, deltaY * 0.32)
+    setIsPullAnimating(false)
+    setPullOffset(nextOffset)
+    if (event.cancelable) {
+      event.preventDefault()
+    }
+  }
+
+  const handleBodyTouchEnd = () => {
+    touchStateRef.current.isPulling = false
+    if (pullOffset === 0) {
+      return
+    }
+
+    setIsPullAnimating(true)
+    setPullOffset(0)
+  }
+
   return (
     <main className="p2p-profile-details">
       <ProfileHeader
@@ -329,19 +381,32 @@ export function ProfileDetailsPage({ onBack }) {
         title={user.name}
         titleCentered
       />
-      {sections.map((section, index) => (
-        <section className="p2p-profile-details__section" key={index}>
-          {section.map((item) => (
-            <Row
-              item={item}
-              isRevealed={Boolean(revealedItems[item.label])}
-              key={item.label}
-              onHide={handleHide}
-              onRevealRequest={handleRevealRequest}
-            />
+      <div
+        className="p2p-profile-details__body"
+        onTouchEnd={handleBodyTouchEnd}
+        onTouchMove={handleBodyTouchMove}
+        onTouchStart={handleBodyTouchStart}
+        ref={bodyRef}
+      >
+        <div
+          className={`p2p-profile-details__body-inner${isPullAnimating ? ' is-returning' : ''}`}
+          style={{ transform: `translateY(${pullOffset}px)` }}
+        >
+          {sections.map((section, index) => (
+            <section className="p2p-profile-details__section" key={index}>
+              {section.map((item) => (
+                <Row
+                  item={item}
+                  isRevealed={Boolean(revealedItems[item.label])}
+                  key={item.label}
+                  onHide={handleHide}
+                  onRevealRequest={handleRevealRequest}
+                />
+              ))}
+            </section>
           ))}
-        </section>
-      ))}
+        </div>
+      </div>
       {isRevealLoading && directRevealItem ? <NameRevealLoader /> : null}
       <IdentityVerificationSheet
         isClosing={isSheetClosing}

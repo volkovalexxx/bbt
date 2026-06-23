@@ -77,6 +77,74 @@
           "title": "Приглашайт..."
         }
       ],
+      "userCenter": {
+        "logoutLabel": "Выйти",
+        "protect": {
+          "actionLabel": "Активировать код защиты от фишинга",
+          "description": "Добавьте код защиты от фишинга в электронные письма и SMS-сообщения от Bybit, чтобы выявлять попытки мошенничества.",
+          "title": "Bybit Protect"
+        },
+        "rows": [
+          {
+            "icon": "avatar",
+            "label": "Изображение профиля",
+            "trailing": "avatar"
+          },
+          {
+            "icon": "nickname",
+            "label": "Никнейм",
+            "value": "pet***@****"
+          },
+          {
+            "icon": "uid",
+            "label": "UID",
+            "trailing": "copy",
+            "value": "70623588"
+          },
+          {
+            "icon": "verification",
+            "label": "Верификация личности",
+            "value": "Верификация\nУр.1 пройдена"
+          },
+          {
+            "icon": "vip",
+            "label": "VIP-уровень",
+            "value": "Без VIP-уровня",
+            "valuePrefix": "0"
+          },
+          {
+            "icon": "fees",
+            "label": "Мои комиссии"
+          },
+          {
+            "icon": "verificationExtra",
+            "label": "Дополнительная\nверификация",
+            "value": "Тикетов: 0"
+          },
+          {
+            "icon": "subaccount",
+            "label": "Субаккаунт"
+          },
+          {
+            "icon": "link",
+            "label": "Привязать аккаунт",
+            "trailing": "socials"
+          },
+          {
+            "icon": "community",
+            "label": "Присоединяйтесь к\nнашему комьюнити"
+          }
+        ],
+        "siteChipLabel": "Site: Bybit Global",
+        "tabs": [
+          "Мои данные",
+          "Безопасность",
+          "Параметры",
+          "Об истории"
+        ],
+        "title": "Центр пользователя",
+        "userName": "pet***@****"
+      },
       "topTools": [
         "support",
         "security",
@@ -324,41 +392,41 @@
         "quantity": "30 USDT",
         "time": "4мин."
       },
-    {
-      "completion": "565 Ордера (100%)",
-      "limit": "1000,00 - 2500,00 RUB",
-      "methods": [
-        "Bank Transfer"
-      ],
-      "name": "DominateX",
-      "price": "74,20",
-      "quantity": "54 USDT",
-      "time": "3мин."
-    },
-    {
-      "completion": "214 Ордера (99%)",
-      "limit": "3000,00 - 12000,00 RUB",
-      "methods": [
-        "Bank Transfer",
-        "Наличные"
-      ],
-      "name": "NordFlow",
-      "price": "73,88",
-      "quantity": "85 USDT",
-      "time": "2мин."
-    },
-    {
-      "completion": "127 Ордера (98%)",
-      "limit": "800,00 - 3500,00 RUB",
-      "methods": [
-        "Bank Transfer"
-      ],
-      "name": "CapitalNode",
-      "price": "74,08",
-      "quantity": "42 USDT",
-      "time": "5мин."
-    }
-  ],
+      {
+        "completion": "565 Ордера (100%)",
+        "limit": "1000,00 - 2500,00 RUB",
+        "methods": [
+          "Bank Transfer"
+        ],
+        "name": "DominateX",
+        "price": "74,20",
+        "quantity": "54 USDT",
+        "time": "3мин."
+      },
+      {
+        "completion": "214 Ордера (99%)",
+        "limit": "3000,00 - 12000,00 RUB",
+        "methods": [
+          "Bank Transfer",
+          "Наличные"
+        ],
+        "name": "NordFlow",
+        "price": "73,88",
+        "quantity": "85 USDT",
+        "time": "2мин."
+      },
+      {
+        "completion": "127 Ордера (98%)",
+        "limit": "800,00 - 3500,00 RUB",
+        "methods": [
+          "Bank Transfer"
+        ],
+        "name": "CapitalNode",
+        "price": "74,08",
+        "quantity": "42 USDT",
+        "time": "5мин."
+      }
+    ],
     "profile": {
       "badges": {
         "merchant": true,
@@ -375,11 +443,11 @@
       "presence": {
         "online": true,
         "onlineLabel": "Онлайн",
-      "offlineLabel": "Оффлайн"
-    },
-    "details": {
-      "requireTwoFactorReveal": true,
-      "sections": [
+        "offlineLabel": "Оффлайн"
+      },
+      "details": {
+        "requireTwoFactorReveal": true,
+        "sections": [
           [
             {
               "label": "Исполненные ордера за 30 дней",
