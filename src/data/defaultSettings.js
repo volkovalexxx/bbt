@@ -39,6 +39,43 @@ export const defaultSettings = {
         { icon: 'referral', subtitle: 'Пригласить', title: 'Приглашайт...' },
       ],
       userCenter: {
+        kycPage: {
+          documentIdLabel: 'ID документа',
+          levelLabel: 'Стандартная',
+          limits: {
+            advanced: {
+              buttonLabel: 'Перейти',
+              noteLabel: 'Для нового уровня',
+              noteText: 'Подтверждение адреса проживания',
+              rows: [
+                { label: 'Вывод криптовалюты (в день)', value: '≤ 2M USDT' },
+                { label: 'Депозит фиата (в день)', value: '≤ 400K USD' },
+                { label: 'Вывод фиата (в день)', value: '≤ 400K USD' },
+              ],
+            },
+            standard: {
+              buttonLabel: 'Перейти',
+              rows: [
+                { label: 'Вывод криптовалюты (в день)', value: '<= 1M USDT' },
+                { label: 'Депозит фиата (в день)', value: '<= 300K USD' },
+                { label: 'Вывод фиата (в день)', value: '<= 300K USD' },
+              ],
+            },
+          },
+          limitsTitle: 'Мой уровень и лимиты',
+          personalDataTitle: 'Личные данные',
+          statusTitle: 'Верификация пройдена',
+          tabs: ['Стандартная', 'Продвинутая'],
+          twoFactor: {
+            requireTwoFactorReveal: true,
+            revealedCountry: 'RUSSIA',
+            revealedDocumentId: '1234 5678 9012',
+            revealedName: 'IVAN IVANOVICH',
+          },
+          updateLabel: 'Обновить',
+          countryLabel: 'Страна/регион выдачи',
+          nameLabel: 'Имя',
+        },
         logoutLabel: 'Выйти',
         protect: {
           actionLabel: 'Активировать код защиты от фишинга',
@@ -51,11 +88,17 @@ export const defaultSettings = {
           { icon: 'nickname', label: 'Никнейм', value: 'pet***@****' },
           { icon: 'uid', label: 'UID', trailing: 'copy', value: '70623588' },
           {
+            action: 'kyc',
             icon: 'verification',
             label: 'Верификация личности',
             value: 'Верификация\nУр.1 пройдена',
           },
-          { icon: 'vip', label: 'VIP-уровень', value: 'Без VIP-уровня', valuePrefix: '0' },
+          {
+            icon: 'vip',
+            label: 'VIP-уровень',
+            value: 'Без VIP-уровня',
+            valuePrefixImage: 'vip0',
+          },
           { icon: 'fees', label: 'Мои комиссии' },
           { icon: 'verificationExtra', label: 'Дополнительная\nверификация', value: 'Тикетов: 0' },
           { icon: 'subaccount', label: 'Субаккаунт' },

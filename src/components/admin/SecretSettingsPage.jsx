@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { ArrowLeft, RotateCcw, Save } from 'lucide-react'
 import { useAppSettings } from '../../settings/AppSettingsContext'
+import { defaultSettings } from '../../data/defaultSettings'
 import { cloneSettings, updateByPath } from './settingsFormUtils'
 import './SecretSettingsPage.css'
 
@@ -177,6 +178,8 @@ export function SecretSettingsPage({ onBack }) {
   const profileMenu = draft.p2p.profile.menuGroups
   const profileStats = draft.p2p.profile.stats
   const homeProfile = draft.home.profilePage
+  const homeKycPage =
+    homeProfile.userCenter.kycPage ?? defaultSettings.home.profilePage.userCenter.kycPage
   const profileBadges = draft.p2p.profile.badges
   const profileStatuses = draft.p2p.profile.statuses
   const detailStats = draft.p2p.profile.details.sections[0]
@@ -231,7 +234,7 @@ export function SecretSettingsPage({ onBack }) {
       </nav>
 
       <div className="secret-settings-page__content">
-        <Section sectionRef={sectionRefs.profile} title="Профиль">
+        <Section sectionRef={profileSectionRef} title="Профиль">
           <div className="secret-settings-page__grid">
             <Field
               label="Ник"
@@ -360,7 +363,7 @@ export function SecretSettingsPage({ onBack }) {
           </div>
         </Section>
 
-        <Section sectionRef={sectionRefs.home} title="Главная">
+        <Section sectionRef={homeSectionRef} title="Главная">
           <Field
             label="Баланс"
             onChange={(event) =>
@@ -371,7 +374,7 @@ export function SecretSettingsPage({ onBack }) {
           />
         </Section>
 
-        <Section sectionRef={sectionRefs.homeProfile} title="Профиль главной">
+        <Section sectionRef={homeProfileSectionRef} title="Профиль главной">
           <div className="secret-settings-page__grid">
             <Field
               label="Ник"
@@ -554,10 +557,57 @@ export function SecretSettingsPage({ onBack }) {
               }
               value={homeProfile.userCenter.protect.actionLabel}
             />
+            <Toggle
+              checked={Boolean(homeKycPage.twoFactor?.requireTwoFactorReveal)}
+              label="KYC 2FA при раскрытии данных"
+              onChange={(event) =>
+                handleChange(
+                  [
+                    'home',
+                    'profilePage',
+                    'userCenter',
+                    'kycPage',
+                    'twoFactor',
+                    'requireTwoFactorReveal',
+                  ],
+                  event.target.checked,
+                )
+              }
+            />
+            <Field
+              label="KYC имя после раскрытия"
+              onChange={(event) =>
+                handleChange(
+                  ['home', 'profilePage', 'userCenter', 'kycPage', 'twoFactor', 'revealedName'],
+                  event.target.value,
+                )
+              }
+              value={homeKycPage.twoFactor?.revealedName ?? ''}
+            />
+            <Field
+              label="KYC документ после раскрытия"
+              onChange={(event) =>
+                handleChange(
+                  ['home', 'profilePage', 'userCenter', 'kycPage', 'twoFactor', 'revealedDocumentId'],
+                  event.target.value,
+                )
+              }
+              value={homeKycPage.twoFactor?.revealedDocumentId ?? ''}
+            />
+            <Field
+              label="KYC страна после раскрытия"
+              onChange={(event) =>
+                handleChange(
+                  ['home', 'profilePage', 'userCenter', 'kycPage', 'twoFactor', 'revealedCountry'],
+                  event.target.value,
+                )
+              }
+              value={homeKycPage.twoFactor?.revealedCountry ?? ''}
+            />
           </div>
         </Section>
 
-        <Section sectionRef={sectionRefs.orders} title="P2P ордеры">
+        <Section sectionRef={ordersSectionRef} title="P2P ордеры">
           <div className="secret-settings-page__card">
             <strong className="secret-settings-page__card-title">Первый ордер с оранжевой плашкой</strong>
             <div className="secret-settings-page__grid">
@@ -649,7 +699,7 @@ export function SecretSettingsPage({ onBack }) {
           ))}
         </Section>
 
-        <Section sectionRef={sectionRefs.details} title="Больше данных">
+        <Section sectionRef={detailsSectionRef} title="Больше данных">
           <div className="secret-settings-page__grid">
             <Field
               label="Исполненные ордера за 30 дней"

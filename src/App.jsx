@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { SecretSettingsPage } from './components/admin/SecretSettingsPage'
 import { HomePage } from './components/home/HomePage'
+import { HomeKycPage } from './components/home-profile/HomeKycPage'
 import { HomeProfilePage } from './components/home-profile/HomeProfilePage'
 import { HomeUserCenterPage } from './components/home-profile/HomeUserCenterPage'
 import { AppShell } from './components/layout/AppShell'
@@ -8,7 +9,6 @@ import { ServicesPage } from './components/services/ServicesPage'
 import { ServicesSearchPage } from './components/services/ServicesSearchPage'
 import { LoadingOverlay } from './components/ui/LoadingOverlay'
 import { P2PPage } from './components/p2p/P2PPage'
-import { AppSettingsProvider } from './settings/AppSettingsContext'
 import { useAppSettings } from './settings/AppSettingsContext'
 
 function isP2PHash() {
@@ -24,6 +24,7 @@ function AppContent({
   onOpenHome,
   onOpenServices,
   onOpenServicesSearch,
+  onOpenKyc,
   onOpenUserCenter,
   screen,
 }) {
@@ -59,7 +60,18 @@ function AppContent({
         </AppShell>
       ) : screen === 'user-center' ? (
         <AppShell nav={null}>
-          <HomeUserCenterPage onBack={onOpenHomeProfile} settings={settings.home.profilePage.userCenter} />
+          <HomeUserCenterPage
+            onBack={onOpenHomeProfile}
+            onOpenKyc={onOpenKyc}
+            settings={settings.home.profilePage.userCenter}
+          />
+        </AppShell>
+      ) : screen === 'kyc' ? (
+        <AppShell nav={null}>
+          <HomeKycPage
+            onBack={onOpenUserCenter}
+            settings={settings.home.profilePage.userCenter?.kycPage}
+          />
         </AppShell>
       ) : (
         <HomePage
@@ -108,7 +120,7 @@ export default function App() {
       window.location.hash = 'p2p'
       setScreen('p2p')
       setIsLoading(false)
-    }, 720)
+    }, 520)
   }
 
   const openHome = () => {
@@ -131,7 +143,7 @@ export default function App() {
     loadingTimer.current = window.setTimeout(() => {
       setScreen('home-profile')
       setIsLoading(false)
-    }, 720)
+    }, 520)
   }
 
   const openServices = () => {
@@ -153,11 +165,21 @@ export default function App() {
     loadingTimer.current = window.setTimeout(() => {
       setScreen('user-center')
       setIsLoading(false)
-    }, 720)
+    }, 520)
+  }
+
+  const openKyc = () => {
+    window.clearTimeout(loadingTimer.current)
+    setLoadingLabel('KYC')
+    setIsLoading(true)
+    loadingTimer.current = window.setTimeout(() => {
+      setScreen('kyc')
+      setIsLoading(false)
+    }, 520)
   }
 
   return (
-    <AppSettingsProvider>
+    <>
       {isBootLoading ? <LoadingOverlay variant="splash" /> : null}
       <AppContent
         isLoading={isLoading}
@@ -168,9 +190,10 @@ export default function App() {
         onOpenSecretSettings={openSecretSettings}
         onOpenServices={openServices}
         onOpenServicesSearch={openServicesSearch}
+        onOpenKyc={openKyc}
         onOpenUserCenter={openUserCenter}
         screen={screen}
       />
-    </AppSettingsProvider>
+    </>
   )
 }

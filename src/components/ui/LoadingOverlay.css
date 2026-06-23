@@ -58,40 +58,44 @@
   display: flex;
   align-items: flex-end;
   gap: 7px;
-  height: 28px;
+  height: 24px;
   overflow: visible;
 }
 
 .loading-overlay__p2p-bars span {
   width: 5px;
+  height: 18px;
   display: block;
   background: #fff;
-  opacity: 1;
+  opacity: 0;
   transform-origin: bottom center;
-  animation:
-    p2p-bar-reveal 1.05s ease-in-out infinite,
-    p2p-bar-pulse 1.05s ease-in-out infinite;
-  animation-delay: 0.22s, 0.22s;
-}
-
-.loading-overlay__p2p-bars .is-short {
-  height: 13px;
-}
-
-.loading-overlay__p2p-bars .is-tall {
-  height: 24px;
+  animation: p2p-bar-wave 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
 }
 
 .loading-overlay__p2p-bars span:nth-child(1) {
-  animation-delay: 0.22s, 0.22s;
+  animation-delay: 0s;
 }
 
 .loading-overlay__p2p-bars span:nth-child(2) {
-  animation-delay: 0.4s, 0.4s;
+  animation-delay: 0.14s;
 }
 
 .loading-overlay__p2p-bars span:nth-child(3) {
-  animation-delay: 0.58s, 0.58s;
+  animation-delay: 0.28s;
+}
+
+.loading-overlay__p2p-bars span:nth-child(4) {
+  animation-delay: 0.42s;
+}
+
+.loading-overlay__p2p-bars span:nth-child(5) {
+  animation-delay: 0.56s;
+}
+
+.loading-overlay__p2p-bars .is-accent {
+  background: #ff9c2e;
 }
 
 .loading-overlay__p2p-label {
@@ -143,39 +147,40 @@
   }
 }
 
-@keyframes p2p-bar-reveal {
+@keyframes p2p-bar-wave {
   0% {
     opacity: 0;
-    background: rgba(182, 184, 190, 0.35);
-    transform: scaleY(0.18);
+    transform: translateY(0) scaleY(0.22);
   }
 
-  18% {
-    opacity: 0.95;
-    background: rgba(188, 190, 196, 0.62);
-    transform: scaleY(0.72);
+  8% {
+    opacity: 0;
+    transform: translateY(0) scaleY(0.22);
   }
 
-  34%,
-  100% {
+  28% {
+    opacity: 0.45;
+    transform: translateY(-2.2px) scaleY(0.46);
+  }
+
+  42% {
     opacity: 1;
-    background: #fff;
-    transform: scaleY(1);
+    transform: translateY(-8.2px) scaleY(0.98);
   }
-}
 
-@keyframes p2p-bar-pulse {
-  0%,
+  58% {
+    opacity: 0.56;
+    transform: translateY(-3.2px) scaleY(0.52);
+  }
+
+  64% {
+    opacity: 0;
+    transform: translateY(0) scaleY(0.22);
+  }
+
   100% {
-    transform: scaleY(1);
-  }
-
-  35% {
-    transform: scaleY(1.16);
-  }
-
-  60% {
-    transform: scaleY(1.05);
+    opacity: 0;
+    transform: translateY(0) scaleY(0.22);
   }
 }
 

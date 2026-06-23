@@ -26,9 +26,11 @@ export function LoadingOverlay({ label = 'Fiat P2P', variant = 'dots', motion = 
       >
         <div className="loading-overlay__p2p-wrap">
           <div className="loading-overlay__p2p-bars" aria-hidden="true">
-            <span className="is-short" />
-            <span className="is-tall" />
-            <span className="is-short" />
+            <span />
+            <span />
+            <span />
+            <span className="is-accent" />
+            <span />
           </div>
           <strong className="loading-overlay__p2p-label">{label}</strong>
         </div>
